@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class MagazineTableViewController: UITableViewController {
 
@@ -23,10 +24,16 @@ class MagazineTableViewController: UITableViewController {
     }
  
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "MagazineTableViewCell") as! MagazineTableViewCell
         
-        cell.travelImageView.image = UIImage(named: magazine[indexPath.row].photo_image)
+        let url = URL(string: magazine[indexPath.row].photo_image)
+        let placeholder = UIImage(systemName: "arrow.clockwise.circle")!
+        
+        cell.travelImageView.kf.setImage(with: url, placeholder: placeholder)
+        cell.travelImageView.contentMode = .scaleAspectFill
         cell.travelImageView.layer.cornerRadius = 10
+        cell.travelImageView.tintColor = .lightGray
         
         cell.titleLabel.text = magazine[indexPath.row].title
         cell.titleLabel.font = .boldSystemFont(ofSize: 20)
