@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0417D8702C01DB13008D2322 /* BeforeCodeOfResturantTableVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0417D86F2C01DB13008D2322 /* BeforeCodeOfResturantTableVIew.swift */; };
 		04983F922C008A1D0014CD63 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04983F912C008A1D0014CD63 /* AppDelegate.swift */; };
 		04983F942C008A1D0014CD63 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04983F932C008A1D0014CD63 /* SceneDelegate.swift */; };
 		04983F962C008A1D0014CD63 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04983F952C008A1D0014CD63 /* ViewController.swift */; };
@@ -18,9 +19,13 @@
 		04983FAA2C008C070014CD63 /* MagazineTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04983FA92C008C070014CD63 /* MagazineTableViewController.swift */; };
 		04983FAC2C0092C60014CD63 /* MagazineTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04983FAB2C0092C60014CD63 /* MagazineTableViewCell.swift */; };
 		04983FAF2C00B1680014CD63 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 04983FAE2C00B1680014CD63 /* Kingfisher */; };
+		04983FB12C00C8D40014CD63 /* RestaurantTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04983FB02C00C8D40014CD63 /* RestaurantTableViewCell.swift */; };
+		04983FB32C00C8E00014CD63 /* RestaurantTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04983FB22C00C8E00014CD63 /* RestaurantTableViewController.swift */; };
+		04983FB52C00C9360014CD63 /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04983FB42C00C9360014CD63 /* Restaurant.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0417D86F2C01DB13008D2322 /* BeforeCodeOfResturantTableVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeforeCodeOfResturantTableVIew.swift; sourceTree = "<group>"; };
 		04983F8E2C008A1D0014CD63 /* Assignment_240524.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Assignment_240524.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04983F912C008A1D0014CD63 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		04983F932C008A1D0014CD63 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -33,6 +38,9 @@
 		04983FA72C008BA10014CD63 /* Magazine.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Magazine.storyboard; sourceTree = "<group>"; };
 		04983FA92C008C070014CD63 /* MagazineTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagazineTableViewController.swift; sourceTree = "<group>"; };
 		04983FAB2C0092C60014CD63 /* MagazineTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagazineTableViewCell.swift; sourceTree = "<group>"; };
+		04983FB02C00C8D40014CD63 /* RestaurantTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantTableViewCell.swift; sourceTree = "<group>"; };
+		04983FB22C00C8E00014CD63 /* RestaurantTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantTableViewController.swift; sourceTree = "<group>"; };
+		04983FB42C00C9360014CD63 /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +78,9 @@
 				04983F932C008A1D0014CD63 /* SceneDelegate.swift */,
 				04983F952C008A1D0014CD63 /* ViewController.swift */,
 				04983FA72C008BA10014CD63 /* Magazine.storyboard */,
+				04983FB22C00C8E00014CD63 /* RestaurantTableViewController.swift */,
+				04983FB02C00C8D40014CD63 /* RestaurantTableViewCell.swift */,
+				04983FB42C00C9360014CD63 /* Restaurant.swift */,
 				04983FA92C008C070014CD63 /* MagazineTableViewController.swift */,
 				04983FAB2C0092C60014CD63 /* MagazineTableViewCell.swift */,
 				04983FA52C008B3B0014CD63 /* MagazineInfo.swift */,
@@ -77,6 +88,7 @@
 				04983F9A2C008A1E0014CD63 /* Assets.xcassets */,
 				04983F9C2C008A1E0014CD63 /* LaunchScreen.storyboard */,
 				04983F9F2C008A1E0014CD63 /* Info.plist */,
+				0417D86F2C01DB13008D2322 /* BeforeCodeOfResturantTableVIew.swift */,
 			);
 			path = Assignment_240524;
 			sourceTree = "<group>";
@@ -160,11 +172,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				04983FAA2C008C070014CD63 /* MagazineTableViewController.swift in Sources */,
+				0417D8702C01DB13008D2322 /* BeforeCodeOfResturantTableVIew.swift in Sources */,
 				04983F962C008A1D0014CD63 /* ViewController.swift in Sources */,
 				04983FA62C008B3B0014CD63 /* MagazineInfo.swift in Sources */,
 				04983FAC2C0092C60014CD63 /* MagazineTableViewCell.swift in Sources */,
 				04983F922C008A1D0014CD63 /* AppDelegate.swift in Sources */,
+				04983FB12C00C8D40014CD63 /* RestaurantTableViewCell.swift in Sources */,
+				04983FB32C00C8E00014CD63 /* RestaurantTableViewController.swift in Sources */,
 				04983F942C008A1D0014CD63 /* SceneDelegate.swift in Sources */,
+				04983FB52C00C9360014CD63 /* Restaurant.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -316,6 +332,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Assignment_240524/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -348,6 +365,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Assignment_240524/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

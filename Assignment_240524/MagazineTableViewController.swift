@@ -49,6 +49,8 @@ class MagazineTableViewController: UITableViewController {
         cell.dateLabel.textColor = .lightGray
         cell.dateLabel.textAlignment = .right
         
+        tableView.reloadRows(at: [IndexPath(row: indexPath.row, section: indexPath.section)], with: .automatic)
+        
         return cell
     }
     
