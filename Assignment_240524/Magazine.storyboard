@@ -111,10 +111,21 @@
                                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                     <state key="normal" title="Button"/>
                                 </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YJF-7R-4QP">
+                                    <rect key="frame" x="12" y="4" width="50" height="36"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="50" id="ooZ-Tc-ylL"/>
+                                    </constraints>
+                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                    <state key="normal" title="Button"/>
+                                </button>
                             </subviews>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             <constraints>
+                                <constraint firstAttribute="bottom" secondItem="YJF-7R-4QP" secondAttribute="bottom" constant="4" id="PuQ-ab-DsA"/>
+                                <constraint firstItem="YJF-7R-4QP" firstAttribute="leading" secondItem="mhQ-DI-Ow2" secondAttribute="leading" constant="12" id="akY-Zw-bdx"/>
                                 <constraint firstAttribute="trailing" secondItem="H4h-xz-F8c" secondAttribute="trailing" constant="12" id="dgn-3q-Hsa"/>
+                                <constraint firstItem="YJF-7R-4QP" firstAttribute="top" secondItem="mhQ-DI-Ow2" secondAttribute="top" constant="4" id="hdC-G0-pn4"/>
                                 <constraint firstAttribute="bottom" secondItem="H4h-xz-F8c" secondAttribute="bottom" constant="4" id="jHM-hy-Azo"/>
                                 <constraint firstItem="H4h-xz-F8c" firstAttribute="top" secondItem="mhQ-DI-Ow2" secondAttribute="top" constant="4" id="pfH-KF-VbS"/>
                             </constraints>
@@ -248,6 +259,8 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="SeSAC Food Fighter" id="waD-sf-Bb8"/>
                     <connections>
+                        <outlet property="anyButtonView" destination="mhQ-DI-Ow2" id="cEU-nX-1Us"/>
+                        <outlet property="koreanFoodButton" destination="YJF-7R-4QP" id="gLf-5P-HWr"/>
                         <outlet property="sortButton" destination="H4h-xz-F8c" id="qGr-AN-c1O"/>
                     </connections>
                 </tableViewController>

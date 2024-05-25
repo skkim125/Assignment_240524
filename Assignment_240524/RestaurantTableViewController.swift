@@ -9,12 +9,16 @@ import UIKit
 import Kingfisher
 
 class RestaurantTableViewController: UITableViewController {
+    @IBOutlet var anyButtonView: UIView!
     @IBOutlet var sortButton: UIButton!
+    @IBOutlet var koreanFoodButton: UIButton!
     
     var list = RestaurantList().restaurantArray
     
     var sortBool: Bool = false
-    var sortName = ""
+    var sortName = "기본 정렬순"
+    
+    var isKoreanButtonClicked: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,10 +26,10 @@ class RestaurantTableViewController: UITableViewController {
         navigationItem.title = "영등포캠퍼스 Food Fighter"
         tableView.rowHeight = 190
 
-        sortName = "기본 정렬순"
         sortButtonUI(sortName: "\(sortName)")
         sortButton.addTarget(self, action: #selector(sortButtonClicked), for: .touchUpInside)
-    
+        
+        koreanFoodButtonUI(button: koreanFoodButton, color: .black, backgroundColor: .white)
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -133,6 +137,30 @@ class RestaurantTableViewController: UITableViewController {
             sortButtonUI(sortName: "기본 정렬순")
             list = RestaurantList().restaurantArray
             
+        }
+        tableView.reloadData()
+    }
+    
+    func koreanFoodButtonUI(button: UIButton, color: UIColor, backgroundColor: UIColor) {
+        button.setTitle("한식", for: .normal)
+        button.setTitleColor(color, for: .normal)
+        button.backgroundColor = backgroundColor
+        button.layer.borderWidth = 2
+        button.layer.cornerRadius = 8
+        
+        button.addTarget(self, action: #selector(koreanFoodButtonClicked), for: .touchUpInside)
+    }
+    
+    @objc
+    func koreanFoodButtonClicked() {
+        isKoreanButtonClicked.toggle()
+        if isKoreanButtonClicked {
+            koreanFoodButtonUI(button: koreanFoodButton, color: .white, backgroundColor: .black)
+            list = list.filter { $0.category == "한식" }
+        } else {
+            koreanFoodButtonUI(button: koreanFoodButton, color: .black, backgroundColor: .white)
+            
+            list = RestaurantList().restaurantArray
         }
         tableView.reloadData()
     }
