@@ -105,7 +105,7 @@ class RestaurantTableViewController: UITableViewController {
     
     func likeButtonUI(cell: RestaurantTableViewCell, row: Int) {
         cell.likeButton.tag = row
-        cell.likeButton.addTarget(self, action: #selector(likeButtonToggled), for: .touchUpInside)
+        cell.likeButton.addTarget(self, action: #selector(likeButtonClicked), for: .touchUpInside)
         
         let likeImg = list[row].like ? "heart.fill" : "heart"
         cell.likeButton.setImage(UIImage(systemName: likeImg), for: .normal)
@@ -113,7 +113,7 @@ class RestaurantTableViewController: UITableViewController {
     }
     
     @objc
-    func likeButtonToggled(button: UIButton) {
+    func likeButtonClicked(button: UIButton) {
         list[button.tag].like.toggle()
         
         tableView.reloadRows(at: [IndexPath(row: button.tag, section: 0)], with: .none)
@@ -128,16 +128,8 @@ class RestaurantTableViewController: UITableViewController {
     @objc
     func sortButtonClicked() {
         sortBool.toggle()
+        buttonLogic()
         
-        if sortBool {
-            sortButtonUI(sortName: "낮은 가격순")
-            list.sort(by: { $0.price < $1.price })
-            
-        } else {
-            sortButtonUI(sortName: "기본 정렬순")
-            list = RestaurantList().restaurantArray
-            
-        }
         tableView.reloadData()
     }
     
@@ -154,15 +146,40 @@ class RestaurantTableViewController: UITableViewController {
     @objc
     func koreanFoodButtonClicked() {
         isKoreanButtonClicked.toggle()
-        if isKoreanButtonClicked {
-            koreanFoodButtonUI(button: koreanFoodButton, color: .white, backgroundColor: .black)
-            list = list.filter { $0.category == "한식" }
-        } else {
-            koreanFoodButtonUI(button: koreanFoodButton, color: .black, backgroundColor: .white)
-            
-            list = RestaurantList().restaurantArray
-        }
+        buttonLogic()
+        
         tableView.reloadData()
+    }
+    
+    func buttonLogic() {
+        
+        if isKoreanButtonClicked { // 1. 한식버튼 true
+            if sortBool {
+                // 1-1. 정렬버튼 true = 한식 정렬 모두
+                list = RestaurantList().restaurantArray.filter { $0.category == "한식" }.sorted(by: { $0.price < $1.price })
+                sortButtonUI(sortName: "낮은 가격순")
+                koreanFoodButtonUI(button: koreanFoodButton, color: .white, backgroundColor: .black)
+                
+            } else {
+                // 1-2. 정렬버튼 false = 한식만
+                list = RestaurantList().restaurantArray.filter { $0.category == "한식" }
+                sortButtonUI(sortName: "기본 정렬순")
+                koreanFoodButtonUI(button: koreanFoodButton, color: .white, backgroundColor: .black)
+            }
+        } else { // 2. 한식버튼 false
+            
+            // 2-1. 정렬버튼 true = 정렬만
+            if sortBool {
+                list = RestaurantList().restaurantArray.sorted(by: { $0.price < $1.price })
+                sortButtonUI(sortName: "낮은 가격순")
+                koreanFoodButtonUI(button: koreanFoodButton, color: .black, backgroundColor: .white)
+            } else {
+                // 2-2. 정렬버튼 flase = 기본
+                list = RestaurantList().restaurantArray
+                sortButtonUI(sortName: "기본 정렬순")
+                koreanFoodButtonUI(button: koreanFoodButton, color: .black, backgroundColor: .white)
+            }
+        }
     }
     
 }
