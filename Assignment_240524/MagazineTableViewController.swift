@@ -10,7 +10,7 @@ import Kingfisher
 
 class MagazineTableViewController: UITableViewController {
 
-    let magazine = MagazineInfo().magazine
+    let magazine = MagazineInfo().magazine.sorted(by: { $0.date > $1.date })
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,7 +55,7 @@ class MagazineTableViewController: UITableViewController {
     }
     
     func dateFormat(_ date: String) -> String {
-        let dateStr = "230125"
+        let dateStr = date
         let dateFormat = DateFormatter()
         dateFormat.dateFormat = "yyMMdd" // DateFormatter()의 dateFormat 설정
         let convertDate = dateFormat.date(from: dateStr) // Date 타입으로 변환
