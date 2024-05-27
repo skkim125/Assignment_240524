@@ -17,11 +17,12 @@ class AdTableViewCell: UITableViewCell {
         configureAdUI()
     }
     
+    // AdCell 뷰 전체 UI
     func configureAdUI() {
         
         adTitleLabel.font = .boldSystemFont(ofSize: 18)
         adTitleLabel.textAlignment = .center
-        adTitleLabel.backgroundColor = [.systemMint, .lightGray, .yellow].randomElement()
+        adTitleLabel.backgroundColor = [.systemMint, .lightGray, .yellow, .cyan, .orange].randomElement()
         adTitleLabel.layer.cornerRadius = 10
         adTitleLabel.layer.masksToBounds = true
         adTitleLabel.numberOfLines = 2
@@ -34,6 +35,7 @@ class AdTableViewCell: UITableViewCell {
         adLabel.backgroundColor = .white
     }
     
+    // adTitleLabel의 text 메서드
     func configureAd(title: String) {
         adTitleLabel.text = title
     }
