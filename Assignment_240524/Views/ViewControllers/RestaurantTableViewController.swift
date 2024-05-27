@@ -8,32 +8,55 @@
 import UIKit
 import Kingfisher
 
-class RestaurantTableViewController: UITableViewController {
-    @IBOutlet var anyButtonView: UIView!
-    @IBOutlet var sortButton: UIButton!
-    @IBOutlet var koreanFoodButton: UIButton!
+class RestaurantTableViewController: UITableViewController, UISearchBarDelegate {
+    @IBOutlet var searchBar: UISearchBar!
     
+    var koreanOn = false
+    var sortOn = false
     var list = RestaurantList().restaurantArray
+    var filteredList = RestaurantList().restaurantArray
+    var searchList: [Restaurant] = []
     
-    var sortBool: Bool = false
     var sortName = "기본 정렬순"
-    
-    var isKoreanButtonClicked: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationItem.title = "영등포캠퍼스 Food Fighter"
-        tableView.rowHeight = 190
-
-        sortButtonUI(sortName: "\(sortName)")
-        sortButton.addTarget(self, action: #selector(sortButtonClicked), for: .touchUpInside)
+        let koreanFood = UIBarButtonItem(title: "한식만", style: .plain, target: self, action: #selector(koreanFoodButtonClicked))
+        let sort = UIBarButtonItem(title: sortName, style: .plain, target: self, action: #selector(sortButtonClicked))
         
-        koreanFoodButtonUI(button: koreanFoodButton, color: .black, backgroundColor: .white)
+        navigationItem.leftBarButtonItem = koreanFood
+        navigationItem.rightBarButtonItem = sort
+        navigationItem.title = "영등포캠퍼스 Food Fighter"
+        
+        searchBar.delegate = self
+
+        tableView.rowHeight = 190
+    }
+    
+    @objc
+    func koreanFoodButtonClicked() {
+        koreanOn.toggle()
+        
+        buttonLogic()
+        navigationItem.leftBarButtonItem?.tintColor = koreanOn ? .green : .tintColor
+        
+        tableView.reloadData()
+    }
+    
+    @objc
+    func sortButtonClicked() {
+        sortOn.toggle()
+        
+        buttonLogic()
+        navigationItem.rightBarButtonItem?.tintColor = sortOn ? .green : .tintColor
+        navigationItem.rightBarButtonItem?.title = sortName
+        
+        tableView.reloadData()
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return list.count
+        return filteredList.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -51,7 +74,7 @@ class RestaurantTableViewController: UITableViewController {
     }
     
     func restaurantImageViewUI(cell: RestaurantTableViewCell, row: Int) {
-        let imageUrl = URL(string: list[row].image)
+        let imageUrl = URL(string: filteredList[row].image)
         let placeholder = UIImage(systemName: "arrow.clockwise.circle")
         cell.restaurantImageView.kf.setImage(with: imageUrl, placeholder: placeholder)
         cell.restaurantImageView.contentMode = .scaleToFill
@@ -59,7 +82,7 @@ class RestaurantTableViewController: UITableViewController {
     }
     
     func categortLabelUI(cell: RestaurantTableViewCell, row: Int) {
-        cell.categoryLabel.text = list[row].category
+        cell.categoryLabel.text = filteredList[row].category
         cell.categoryLabel.font = .boldSystemFont(ofSize: 13)
         cell.categoryLabel.textColor = .darkGray
         cell.categoryLabel.textAlignment = .left
@@ -67,7 +90,7 @@ class RestaurantTableViewController: UITableViewController {
     }
     
     func restaurantNameLabelUI(cell: RestaurantTableViewCell, row: Int) {
-        cell.restaurantNameLabel.text = list[row].name
+        cell.restaurantNameLabel.text = filteredList[row].name
         cell.restaurantNameLabel.font = .boldSystemFont(ofSize: 17)
         cell.restaurantNameLabel.sizeToFit()
         cell.restaurantNameLabel.adjustsFontSizeToFitWidth = true
@@ -76,7 +99,7 @@ class RestaurantTableViewController: UITableViewController {
     }
     
     func addressLabelUI(cell: RestaurantTableViewCell, row: Int) {
-        cell.addressLabel.text = list[row].address
+        cell.addressLabel.text = filteredList[row].address
         cell.addressLabel.font = .systemFont(ofSize: 12)
         cell.addressLabel.sizeToFit()
         cell.addressLabel.textAlignment = .left
@@ -87,17 +110,17 @@ class RestaurantTableViewController: UITableViewController {
         cell.phoneImage.image = UIImage(systemName: "phone.fill")
         cell.phoneImage.contentMode = .scaleAspectFit
         
-        cell.phoneLabel.text = list[row].phoneNumber
+        cell.phoneLabel.text = filteredList[row].phoneNumber
         cell.phoneLabel.font = .systemFont(ofSize: 12)
         
-        cell.priceLabel.text = "\(list[row].price)원~ "
+        cell.priceLabel.text = "\(filteredList[row].price)원~ "
         cell.priceLabel.font = .boldSystemFont(ofSize: 18)
         cell.priceLabel.sizeToFit()
         cell.priceLabel.textAlignment = .right
     }
     
     func priceLabelUI(cell: RestaurantTableViewCell, row: Int) {
-        cell.priceLabel.text = "\(list[row].price)원~ "
+        cell.priceLabel.text = "\(filteredList[row].price)원~ "
         cell.priceLabel.font = .boldSystemFont(ofSize: 18)
         cell.priceLabel.sizeToFit()
         cell.priceLabel.textAlignment = .right
@@ -107,79 +130,60 @@ class RestaurantTableViewController: UITableViewController {
         cell.likeButton.tag = row
         cell.likeButton.addTarget(self, action: #selector(likeButtonClicked), for: .touchUpInside)
         
-        let likeImg = list[row].like ? "heart.fill" : "heart"
+        let likeImg = filteredList[row].like ? "heart.fill" : "heart"
         cell.likeButton.setImage(UIImage(systemName: likeImg), for: .normal)
         cell.likeButton.tintColor = .red
     }
     
     @objc
     func likeButtonClicked(button: UIButton) {
-        list[button.tag].like.toggle()
+        filteredList[button.tag].like.toggle()
         
         tableView.reloadRows(at: [IndexPath(row: button.tag, section: 0)], with: .none)
     }
     
-    func sortButtonUI(sortName: String) {
-        sortButton.setTitle(sortName, for: .normal)
-        sortButton.setImage(UIImage(systemName: "chevron.down"), for: .normal)
-        sortButton.titleLabel?.font = .boldSystemFont(ofSize: 12)
-    }
-    
-    @objc
-    func sortButtonClicked() {
-        sortBool.toggle()
-        buttonLogic()
-        
-        tableView.reloadData()
-    }
-    
-    func koreanFoodButtonUI(button: UIButton, color: UIColor, backgroundColor: UIColor) {
-        button.setTitle("한식", for: .normal)
-        button.setTitleColor(color, for: .normal)
-        button.backgroundColor = backgroundColor
-        button.layer.borderWidth = 2
-        button.layer.cornerRadius = 8
-        
-        button.addTarget(self, action: #selector(koreanFoodButtonClicked), for: .touchUpInside)
-    }
-    
-    @objc
-    func koreanFoodButtonClicked() {
-        isKoreanButtonClicked.toggle()
-        buttonLogic()
-        
-        tableView.reloadData()
-    }
-    
     func buttonLogic() {
         
-        if isKoreanButtonClicked { // 1. 한식버튼 true
-            if sortBool {
+        if koreanOn { // 1. 한식버튼 true
+            if sortOn {
                 // 1-1. 정렬버튼 true = 한식 정렬 모두
-                list = RestaurantList().restaurantArray.filter { $0.category == "한식" }.sorted(by: { $0.price < $1.price })
-                sortButtonUI(sortName: "낮은 가격순")
-                koreanFoodButtonUI(button: koreanFoodButton, color: .white, backgroundColor: .black)
+                filteredList = list.filter { $0.category == "한식" }.sorted(by: { $0.price < $1.price })
+                sortName = "낮은 가격순"
                 
             } else {
                 // 1-2. 정렬버튼 false = 한식만
-                list = RestaurantList().restaurantArray.filter { $0.category == "한식" }
-                sortButtonUI(sortName: "기본 정렬순")
-                koreanFoodButtonUI(button: koreanFoodButton, color: .white, backgroundColor: .black)
+                filteredList = list.filter { $0.category == "한식" }
+                sortName = "기본 정렬순"
             }
         } else { // 2. 한식버튼 false
             
             // 2-1. 정렬버튼 true = 정렬만
-            if sortBool {
-                list = RestaurantList().restaurantArray.sorted(by: { $0.price < $1.price })
-                sortButtonUI(sortName: "낮은 가격순")
-                koreanFoodButtonUI(button: koreanFoodButton, color: .black, backgroundColor: .white)
+            if sortOn {
+                filteredList = list.sorted(by: { $0.price < $1.price })
+                sortName = "낮은 가격순"
             } else {
                 // 2-2. 정렬버튼 flase = 기본
-                list = RestaurantList().restaurantArray
-                sortButtonUI(sortName: "기본 정렬순")
-                koreanFoodButtonUI(button: koreanFoodButton, color: .black, backgroundColor: .white)
+                filteredList = list
+                sortName = "기본 정렬순"
             }
         }
     }
     
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchList.removeAll()
+        
+        for i in filteredList {
+            if i.name.contains(searchBar.text!) || i.category.contains(searchBar.text!) { // str.contains() = str에 포함되는 string인가에 대한 조건
+                searchList.append(i)
+            }
+        }
+        
+        if searchList.isEmpty {
+            searchBar.text = ""
+            searchBar.placeholder = "검색결과가 없습니다."
+        }
+        
+        filteredList = searchList
+        tableView.reloadData()
+    }
 }

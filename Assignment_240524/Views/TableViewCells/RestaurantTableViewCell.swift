@@ -18,10 +18,4 @@ class RestaurantTableViewCell: UITableViewCell {
     @IBOutlet var priceLabel: UILabel!
     @IBOutlet var likeButton: UIButton!
     
-    
-//    override func awakeFromNib() {
-//        super.awakeFromNib()
-//        // Initialization code
-//    }
-
 }

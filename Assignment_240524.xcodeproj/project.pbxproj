@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0417D8702C01DB13008D2322 /* BeforeCodeOfResturantTableVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0417D86F2C01DB13008D2322 /* BeforeCodeOfResturantTableVIew.swift */; };
+		04776DD92C04BFA800251555 /* BeforeRestaurantButtonLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04776DD82C04BFA800251555 /* BeforeRestaurantButtonLogic.swift */; };
 		04983F922C008A1D0014CD63 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04983F912C008A1D0014CD63 /* AppDelegate.swift */; };
 		04983F942C008A1D0014CD63 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04983F932C008A1D0014CD63 /* SceneDelegate.swift */; };
 		04983F9B2C008A1E0014CD63 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04983F9A2C008A1E0014CD63 /* Assets.xcassets */; };
@@ -31,6 +32,7 @@
 
 /* Begin PBXFileReference section */
 		0417D86F2C01DB13008D2322 /* BeforeCodeOfResturantTableVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeforeCodeOfResturantTableVIew.swift; sourceTree = "<group>"; };
+		04776DD82C04BFA800251555 /* BeforeRestaurantButtonLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeforeRestaurantButtonLogic.swift; sourceTree = "<group>"; };
 		04983F8E2C008A1D0014CD63 /* Assignment_240524.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Assignment_240524.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04983F912C008A1D0014CD63 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		04983F932C008A1D0014CD63 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -94,6 +96,7 @@
 				04983F9C2C008A1E0014CD63 /* LaunchScreen.storyboard */,
 				04983F9F2C008A1E0014CD63 /* Info.plist */,
 				0417D86F2C01DB13008D2322 /* BeforeCodeOfResturantTableVIew.swift */,
+				04776DD82C04BFA800251555 /* BeforeRestaurantButtonLogic.swift */,
 			);
 			path = Assignment_240524;
 			sourceTree = "<group>";
@@ -225,6 +228,7 @@
 				04983FA62C008B3B0014CD63 /* MagazineInfo.swift in Sources */,
 				04983FAC2C0092C60014CD63 /* MagazineTableViewCell.swift in Sources */,
 				04983F922C008A1D0014CD63 /* AppDelegate.swift in Sources */,
+				04776DD92C04BFA800251555 /* BeforeRestaurantButtonLogic.swift in Sources */,
 				04CDF3942C045BDD001715D9 /* CityViewController.swift in Sources */,
 				04CDF3992C045C52001715D9 /* CityTableViewCell.swift in Sources */,
 				04983FB12C00C8D40014CD63 /* RestaurantTableViewCell.swift in Sources */,
