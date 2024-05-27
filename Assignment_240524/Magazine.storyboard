@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="DNF-WP-UVu">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="21H-xR-SkL">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -92,7 +92,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xa4-AQ-6TP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="872.51908396946567" y="-181.69014084507043"/>
+            <point key="canvasLocation" x="998" y="-642"/>
         </scene>
         <!--SeSAC Food Fighter-->
         <scene sceneID="0ui-oK-bQq">
@@ -266,12 +266,13 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r1p-Wq-UUA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3173.2824427480914" y="-182.3943661971831"/>
+            <point key="canvasLocation" x="5026.7175572519081" y="-182.3943661971831"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--뉴스-->
         <scene sceneID="SGx-Mq-dT3">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="DdN-tc-8af" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="뉴스" image="newspaper" catalog="system" id="FGu-OD-Uz0"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="j5D-s2-Eq1">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
@@ -284,7 +285,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pA6-Vb-b0S" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-54.198473282442748" y="-181.69014084507043"/>
+            <point key="canvasLocation" x="34.351145038167935" y="-642.25352112676057"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="0se-tm-TOk">
@@ -302,12 +303,61 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lXf-Hp-74S" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2246.5648854961833" y="-182.3943661971831"/>
+            <point key="canvasLocation" x="4100" y="-182.3943661971831"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="gxS-dj-o1O">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="21H-xR-SkL" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="moX-Oh-n3v">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="DdN-tc-8af" kind="relationship" relationship="viewControllers" id="1Cg-gh-xHa"/>
+                        <segue destination="mmy-FX-YCU" kind="relationship" relationship="viewControllers" id="Mhz-99-VME"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uCV-8t-bt9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-892.36641221374043" y="-642.25352112676057"/>
+        </scene>
+        <!--City-->
+        <scene sceneID="aGt-bs-Pbi">
+            <objects>
+                <viewControllerPlaceholder storyboardName="City" id="hu0-H4-j9E" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="7GW-M5-4z3"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FmX-nq-zvn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-106" y="46"/>
+        </scene>
+        <!--도시 상세 정보-->
+        <scene sceneID="4in-ko-Cbv">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="mmy-FX-YCU" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="도시 상세 정보" image="building.columns" catalog="system" id="BVM-a5-dvP"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="QKC-cq-vlr">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="hu0-H4-j9E" kind="relationship" relationship="rootViewController" id="7O7-kj-21K"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DWf-Un-G1t" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-892" y="46"/>
         </scene>
     </scenes>
     <resources>
         <image name="arrow.clockwise.circle" catalog="system" width="128" height="123"/>
+        <image name="building.columns" catalog="system" width="128" height="112"/>
         <image name="heart" catalog="system" width="128" height="107"/>
+        <image name="newspaper" catalog="system" width="128" height="111"/>
         <image name="note" catalog="system" width="128" height="107"/>
         <image name="phone" catalog="system" width="128" height="115"/>
         <systemColor name="systemBackgroundColor">
