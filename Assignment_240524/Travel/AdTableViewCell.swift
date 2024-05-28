@@ -13,8 +13,6 @@ class AdTableViewCell: UITableViewCell {
     @IBOutlet var adTitleLabel: UILabel!
     @IBOutlet var adLabel: UILabel!
     
-    var backgroundColorState: UIColor = .clear
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         print("AdTableViewCell\(#function)")
@@ -27,8 +25,7 @@ class AdTableViewCell: UITableViewCell {
         adTitleLabel.font = .boldSystemFont(ofSize: 18)
         adTitleLabel.textColor = .black
         adTitleLabel.textAlignment = .center
-        backgroundColorState = [.systemMint, .lightGray, .yellow, .cyan, .orange].randomElement()!
-        adTitleLabel.backgroundColor = backgroundColorState
+        adTitleLabel.backgroundColor = [.systemMint, .lightGray, .yellow, .cyan, .orange].randomElement()!
         adTitleLabel.layer.cornerRadius = 10
         adTitleLabel.layer.masksToBounds = true
         adTitleLabel.numberOfLines = 2
@@ -48,7 +45,6 @@ extension AdTableViewCell {
     // adTitleLabel의 text 메서드
     func configureAd(title: String) {
         adTitleLabel.text = title
-        adTitleLabel.backgroundColor = backgroundColorState
     }
     
     override func prepareForReuse() {
