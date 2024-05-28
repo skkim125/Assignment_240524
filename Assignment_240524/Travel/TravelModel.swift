@@ -4,7 +4,7 @@
 //  Created by Den on 2024/05/11.
 //
 
-import Foundation
+import UIKit
 
 struct Travel {
     var title: String
@@ -14,6 +14,10 @@ struct Travel {
     var save: Int?
     var like: Bool?
     var ad: Bool
+    
+    var stars: [UIImageView] {
+        return [UIImageView()]
+    }
 }
 
 struct TravelInfo {

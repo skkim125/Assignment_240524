@@ -8,12 +8,16 @@
 import UIKit
 
 class AdTableViewCell: UITableViewCell {
+    static let identifier = "AdTableViewCell"
+    
     @IBOutlet var adTitleLabel: UILabel!
     @IBOutlet var adLabel: UILabel!
     
+    var backgroundColorState: UIColor = .clear
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        
+        print("AdTableViewCell\(#function)")
         configureAdUI()
     }
     
@@ -21,22 +25,34 @@ class AdTableViewCell: UITableViewCell {
     func configureAdUI() {
         
         adTitleLabel.font = .boldSystemFont(ofSize: 18)
+        adTitleLabel.textColor = .black
         adTitleLabel.textAlignment = .center
-        adTitleLabel.backgroundColor = [.systemMint, .lightGray, .yellow, .cyan, .orange].randomElement()
+        backgroundColorState = [.systemMint, .lightGray, .yellow, .cyan, .orange].randomElement()!
+        adTitleLabel.backgroundColor = backgroundColorState
         adTitleLabel.layer.cornerRadius = 10
         adTitleLabel.layer.masksToBounds = true
         adTitleLabel.numberOfLines = 2
         
         adLabel.text = "AD"
+        adLabel.textColor = .black
         adLabel.font = .systemFont(ofSize: 14)
         adLabel.textAlignment = .center
         adLabel.layer.cornerRadius = 5
         adLabel.layer.masksToBounds = true
         adLabel.backgroundColor = .white
     }
+}
+
+extension AdTableViewCell {
     
     // adTitleLabel의 text 메서드
     func configureAd(title: String) {
         adTitleLabel.text = title
+        adTitleLabel.backgroundColor = backgroundColorState
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        print("AdTableViewCell\(#function)")
     }
 }

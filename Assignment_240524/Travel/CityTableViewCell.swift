@@ -10,6 +10,8 @@ import UIKit
 // Intrinsic Content size
 class CityTableViewCell: UITableViewCell {
 
+    static let identifier = "CityTableViewCell"
+    
     @IBOutlet var nameLabel: UILabel!
     @IBOutlet var descriptionLabel: UILabel!
     @IBOutlet var starImages: [UIImageView]!
@@ -19,43 +21,60 @@ class CityTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
-        configureCityCellUI()
+        print("CityTableViewCell\(#function)")
+        configureCityCellLabelUI()
     }
     
-    // CityCellView UI 디자인
-    func configureCityCellUI() {
+    // CityCellView 라벨 UI 디자인
+    func configureCityCellLabelUI() {
         nameLabel.font = .boldSystemFont(ofSize: 18)
         nameLabel.numberOfLines = 2
         
-        descriptionLabel.font = .systemFont(ofSize: 15)
-        descriptionLabel.textColor = .gray
+        descriptionLabel.font = .systemFont(ofSize: 14)
+        descriptionLabel.textColor = .lightGray
         descriptionLabel.numberOfLines = 2
-        
-        starImageUI(stars: starImages)
 
-        saveLabel.font = .boldSystemFont(ofSize: 14)
+        saveLabel.font = .boldSystemFont(ofSize: 13)
         saveLabel.textColor = .lightGray
-        
     }
     
     // CityCellView UI 데이터 디자인
     func configureCityCell(data: Travel) {
-        guard let g = data.grade else { return }
         nameLabel.text = data.title
         descriptionLabel.text = data.description
-        starImages = starFilled(grade: g)
         saveLabel.text = "\u{2022} 저장 \(data.save!)" // \u{2022}: 가운데점 문자열
+    }
+    
+    // CityCellView ImageView UI 데이터 디자인
+    func configureCityCellImgUI(_ data: Travel) {
+        
+        guard let grade = data.grade else { return }
+        starImageUI(stars: starImages)
+        starImages = starFilled(grade: grade)
         
         guard let img = data.travel_image else { return }
         let url = URL(string: img)!
         travelImageView.kf.setImage(with: url, placeholder: UIImage(systemName: "arrow.clockwise"))
         travelImageView.contentMode = .scaleAspectFill
+        travelImageView.layer.cornerRadius = 16
         
-        let likeImg = data.like! ? "heart.fill" : "heart"
+        guard let like = data.like else { return }
+        let likeImg = like ? "heart.fill" : "heart"
         likeButton.setImage(UIImage(systemName: likeImg), for: .normal)
-        likeButton.tintColor = .red
+        likeButton.tintColor = like ? .red : .white
+        likeButton.imageView?.contentMode = .scaleAspectFill
     }
+    
+    // 이미지뷰 cornerRadius 적용해보기
+//    override func layoutSubviews() {
+//        super.layoutSubviews()
+//        
+//        travelImageView.layer.cornerRadius = travelImageView.frame.width / 2
+//    }
+}
+
+// 별점 관련 extension
+extension CityTableViewCell {
     
     // 빈 별점 이미지뷰 UI
     func starImageUI(stars: [UIImageView]) {
@@ -67,19 +86,19 @@ class CityTableViewCell: UITableViewCell {
     
     // 평점에 따른 채워진 별점 배열을 반환하는 로직
     func starFilled(grade: Double) -> [UIImageView] {
-        let intOfGrade = Int(grade)
+        let intGrade = Int(grade)
         
-        switch intOfGrade {
+        switch intGrade {
         case 1:
-            return setStarFilled(num: intOfGrade)
+            return setStarFilled(num: 1)
         case 2:
-            return setStarFilled(num: intOfGrade)
+            return setStarFilled(num: 2)
         case 3:
-            return setStarFilled(num: intOfGrade)
+            return setStarFilled(num: 3)
         case 4:
-            return setStarFilled(num: intOfGrade)
+            return setStarFilled(num: 4)
         case 5:
-            return setStarFilled(num: intOfGrade)
+            return setStarFilled(num: 5)
         default:
             return starImages
         }
@@ -97,5 +116,12 @@ class CityTableViewCell: UITableViewCell {
         }
         
         return result
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+
+        print("CityTableViewCell\(#function)")
+        
     }
 }

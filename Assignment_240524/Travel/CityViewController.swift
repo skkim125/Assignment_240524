@@ -17,18 +17,22 @@ class CityViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         navigationItem.title = "도시 상세 정보"
         
+        tableViewUI()
+        
+    }
+    
+    func tableViewUI() {
         // delegate & dataSource 연결
         cityTableView.delegate = self
         cityTableView.dataSource = self
         
         // CityTableViewCell UINib 코드
-        let cityNib = UINib(nibName: "CityTableViewCell", bundle: nil)
-        cityTableView.register(cityNib, forCellReuseIdentifier: "CityTableViewCell")
+        let cityXib = UINib(nibName: CityTableViewCell.identifier, bundle: nil)
+        cityTableView.register(cityXib, forCellReuseIdentifier: CityTableViewCell.identifier)
         
         // AdTableViewCell UINib 코드
-        let adNib = UINib(nibName: "AdTableViewCell", bundle: nil)
-        cityTableView.register(adNib, forCellReuseIdentifier: "AdTableViewCell")
-        
+        let adXib = UINib(nibName: AdTableViewCell.identifier, bundle: nil)
+        cityTableView.register(adXib, forCellReuseIdentifier: AdTableViewCell.identifier)
     }
     
     // 테이블뷰 셀 개수
@@ -50,17 +54,26 @@ class CityViewController: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let data = list[indexPath.row]
         
-        if !data.ad {
-            let cityCell = tableView.dequeueReusableCell(withIdentifier: "CityTableViewCell", for: indexPath) as! CityTableViewCell
-            cityCell.configureCityCell(data: data)
-            
-            return cityCell
-            
-        } else {
-            let adCell = tableView.dequeueReusableCell(withIdentifier: "AdTableViewCell", for: indexPath) as! AdTableViewCell
+        if data.ad {
+            let adCell = tableView.dequeueReusableCell(withIdentifier: AdTableViewCell.identifier, for: indexPath) as! AdTableViewCell
             adCell.configureAd(title: data.title)
-            
+
             return adCell
+
+        } else {
+            let cityCell = tableView.dequeueReusableCell(withIdentifier: CityTableViewCell.identifier, for: indexPath) as! CityTableViewCell
+            cityCell.configureCityCell(data: data)
+            cityCell.configureCityCellImgUI(data)
+            return cityCell
         }
+
+        
+//        let cityCell2 = tableView.dequeueReusableCell(withIdentifier: CityTableViewCell.identifier) as! CityTableViewCell
+//        cityCell2.configureCityCell(data: data)
+//        
+//        let adCell2 = tableView.dequeueReusableCell(withIdentifier: AdTableViewCell.identifier) as! AdTableViewCell
+//        adCell2.configureAd(title: data.title)
+//        
+//        return data.ad ? adCell2 : cityCell2
     }
 }
