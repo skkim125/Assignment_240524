@@ -23,10 +23,10 @@ class MagazineTableViewController: UITableViewController {
     }
  
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let data = magazine[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: MagazineTableViewCell.identifier) as! MagazineTableViewCell
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "MagazineTableViewCell") as! MagazineTableViewCell
-        
-        cell.magazineTableViewCell(data: magazine[indexPath.row])
+        cell.magazineTableViewCell(data: data)
         cell.magazineTableViewCellUI()
         
         tableView.reloadRows(at: [IndexPath(row: indexPath.row, section: indexPath.section)], with: .automatic)

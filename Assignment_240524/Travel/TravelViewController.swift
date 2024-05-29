@@ -1,5 +1,5 @@
 //
-//  CityViewController.swift
+//  TravelViewController.swift
 //  Assignment_240524
 //
 //  Created by 김상규 on 5/27/24.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CityViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class TravelViewController: UIViewController {
     
     @IBOutlet var cityTableView: UITableView!
     var list = TravelInfo().travel // travel 배열
@@ -34,6 +34,9 @@ class CityViewController: UIViewController, UITableViewDelegate, UITableViewData
         let adXib = UINib(nibName: AdTableViewCell.identifier, bundle: nil)
         cityTableView.register(adXib, forCellReuseIdentifier: AdTableViewCell.identifier)
     }
+}
+
+extension TravelViewController: UITableViewDelegate, UITableViewDataSource {
     
     // 테이블뷰 셀 개수
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -57,23 +60,45 @@ class CityViewController: UIViewController, UITableViewDelegate, UITableViewData
         if data.ad {
             let adCell = tableView.dequeueReusableCell(withIdentifier: AdTableViewCell.identifier, for: indexPath) as! AdTableViewCell
             adCell.configureAd(title: data.title)
-
+            
             return adCell
 
         } else {
             let cityCell = tableView.dequeueReusableCell(withIdentifier: CityTableViewCell.identifier, for: indexPath) as! CityTableViewCell
             cityCell.configureCityCell(data: data)
             cityCell.configureCityCellImgUI(data)
+            
             return cityCell
         }
 
+        // 두개의 셀이라는 공간을 미리 담아두고 꺼내쓰는거기에 그렇게 효율적이진 않다...!
+        //        let cityCell2 = tableView.dequeueReusableCell(withIdentifier: CityTableViewCell.identifier) as! CityTableViewCell
+        //        cityCell2.configureCityCell(data: data)
+        //
+        //        let adCell2 = tableView.dequeueReusableCell(withIdentifier: AdTableViewCell.identifier) as! AdTableViewCell
+        //        adCell2.configureAd(title: data.title)
+        //
+        //        return data.ad ? adCell2 : cityCell2
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let data = list[indexPath.row]
         
-//        let cityCell2 = tableView.dequeueReusableCell(withIdentifier: CityTableViewCell.identifier) as! CityTableViewCell
-//        cityCell2.configureCityCell(data: data)
-//        
-//        let adCell2 = tableView.dequeueReusableCell(withIdentifier: AdTableViewCell.identifier) as! AdTableViewCell
-//        adCell2.configureAd(title: data.title)
-//        
-//        return data.ad ? adCell2 : cityCell2
+        if data.ad {
+            let vc = storyboard?.instantiateViewController(withIdentifier: "AdViewController") as! AdViewController
+            let nav = UINavigationController(rootViewController: vc)
+            
+            nav.modalPresentationStyle = .fullScreen
+            
+            present(nav, animated: true)
+            
+        } else {
+            let sb = UIStoryboard(name: "TravelDetailView", bundle: nil)
+            let vc = sb.instantiateViewController(withIdentifier: "TravelDetailViewController") as! TravelDetailViewController
+            
+            navigationController?.pushViewController(vc, animated: true)
+        }
+        
+        tableView.reloadRows(at: [indexPath], with: .automatic)
     }
 }

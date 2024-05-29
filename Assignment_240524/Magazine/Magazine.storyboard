@@ -300,7 +300,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uCV-8t-bt9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-892.36641221374043" y="-642.25352112676057"/>
+            <point key="canvasLocation" x="-1021" y="111"/>
         </scene>
         <!--City-->
         <scene sceneID="aGt-bs-Pbi">
@@ -310,7 +310,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FmX-nq-zvn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-106" y="46"/>
+            <point key="canvasLocation" x="740" y="111"/>
         </scene>
         <!--도시 상세 정보-->
         <scene sceneID="4in-ko-Cbv">
@@ -329,7 +329,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DWf-Un-G1t" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-892" y="46"/>
+            <point key="canvasLocation" x="34" y="111"/>
         </scene>
     </scenes>
     <resources>
