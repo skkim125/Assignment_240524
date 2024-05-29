@@ -296,6 +296,7 @@
                     <connections>
                         <segue destination="DdN-tc-8af" kind="relationship" relationship="viewControllers" id="1Cg-gh-xHa"/>
                         <segue destination="mmy-FX-YCU" kind="relationship" relationship="viewControllers" id="Mhz-99-VME"/>
+                        <segue destination="ZTQ-My-kxu" kind="relationship" relationship="viewControllers" id="z8O-UQ-LY9"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uCV-8t-bt9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -331,10 +332,40 @@
             </objects>
             <point key="canvasLocation" x="34" y="111"/>
         </scene>
+        <!--SearchCity-->
+        <scene sceneID="3CL-4C-8nf">
+            <objects>
+                <viewControllerPlaceholder storyboardName="SearchCity" id="hLd-RC-0s7" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="wbh-Lt-hrh"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6YW-7q-TEk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="703" y="889"/>
+        </scene>
+        <!--여행 국가 찾기-->
+        <scene sceneID="i4g-TQ-RWO">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ZTQ-My-kxu" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="여행 국가 찾기" image="globe.desk" catalog="system" id="KLr-1g-XBW"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Sfn-dF-Y8U">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="hLd-RC-0s7" kind="relationship" relationship="rootViewController" id="Paw-JV-hC0"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9cb-ce-A8J" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="33" y="890"/>
+        </scene>
     </scenes>
     <resources>
         <image name="arrow.clockwise.circle" catalog="system" width="128" height="123"/>
         <image name="building.columns" catalog="system" width="128" height="112"/>
+        <image name="globe.desk" catalog="system" width="115" height="128"/>
         <image name="heart" catalog="system" width="128" height="107"/>
         <image name="newspaper" catalog="system" width="128" height="111"/>
         <image name="note" catalog="system" width="128" height="107"/>
