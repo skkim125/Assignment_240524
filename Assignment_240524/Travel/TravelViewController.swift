@@ -95,6 +95,8 @@ extension TravelViewController: UITableViewDelegate, UITableViewDataSource {
         } else {
             let sb = UIStoryboard(name: "TravelDetailView", bundle: nil)
             let vc = sb.instantiateViewController(withIdentifier: "TravelDetailViewController") as! TravelDetailViewController
+        
+            vc.travel = data
             
             navigationController?.pushViewController(vc, animated: true)
         }
