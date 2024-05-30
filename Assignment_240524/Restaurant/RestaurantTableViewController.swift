@@ -8,7 +8,7 @@
 import UIKit
 import Kingfisher
 
-class RestaurantTableViewController: UITableViewController, UISearchBarDelegate {
+class RestaurantTableViewController: UITableViewController {
     @IBOutlet var searchBar: UISearchBar!
     
     var koreanOn = false
@@ -73,6 +73,7 @@ class RestaurantTableViewController: UITableViewController, UISearchBarDelegate 
         return cell
     }
     
+    // MARK: - UI Setting
     func restaurantImageViewUI(cell: RestaurantTableViewCell, row: Int) {
         let imageUrl = URL(string: filteredList[row].image)
         let placeholder = UIImage(systemName: "arrow.clockwise.circle")
@@ -142,8 +143,8 @@ class RestaurantTableViewController: UITableViewController, UISearchBarDelegate 
         tableView.reloadRows(at: [IndexPath(row: button.tag, section: 0)], with: .none)
     }
     
+    // MARK: - 필터 로직
     func buttonLogic() {
-        
         if koreanOn { // 1. 한식버튼 true
             if sortOn {
                 // 1-1. 정렬버튼 true = 한식 정렬 모두
@@ -168,6 +169,9 @@ class RestaurantTableViewController: UITableViewController, UISearchBarDelegate 
             }
         }
     }
+}
+
+extension RestaurantTableViewController: UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchList.removeAll()

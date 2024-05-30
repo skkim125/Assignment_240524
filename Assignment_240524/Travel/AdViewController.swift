@@ -9,10 +9,23 @@ import UIKit
 
 class AdViewController: UIViewController {
 
+    @IBOutlet var adTitleLabel: UILabel!
+    var backgroundColor: UIColor?
+    var advertisement: Travel?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         adViewNavigationItemsUI()
+    
+        guard let color = backgroundColor else { return }
+        guard let ad = advertisement else {
+            adTitleLabel.text = ""
+            return
+        }
+        view.backgroundColor = color
+        adTitleLabel.text = ad.title
+        adTitleLabel.textAlignment = .center
     }
     
     func adViewNavigationItemsUI() {

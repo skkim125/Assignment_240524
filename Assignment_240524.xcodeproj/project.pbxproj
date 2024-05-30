@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0417D8702C01DB13008D2322 /* BeforeCodeOfResturantTableVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0417D86F2C01DB13008D2322 /* BeforeCodeOfResturantTableVIew.swift */; };
+		042104942C0862A300E9C613 /* RestaurantMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042104932C0862A300E9C613 /* RestaurantMapViewController.swift */; };
 		04776DD92C04BFA800251555 /* BeforeRestaurantButtonLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04776DD82C04BFA800251555 /* BeforeRestaurantButtonLogic.swift */; };
 		0492718A2C0726E5009E14D2 /* CityInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049271892C0726E5009E14D2 /* CityInfo.swift */; };
 		04983F922C008A1D0014CD63 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04983F912C008A1D0014CD63 /* AppDelegate.swift */; };
@@ -40,6 +41,7 @@
 
 /* Begin PBXFileReference section */
 		0417D86F2C01DB13008D2322 /* BeforeCodeOfResturantTableVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeforeCodeOfResturantTableVIew.swift; sourceTree = "<group>"; };
+		042104932C0862A300E9C613 /* RestaurantMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantMapViewController.swift; sourceTree = "<group>"; };
 		04776DD82C04BFA800251555 /* BeforeRestaurantButtonLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeforeRestaurantButtonLogic.swift; sourceTree = "<group>"; };
 		049271892C0726E5009E14D2 /* CityInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityInfo.swift; sourceTree = "<group>"; };
 		04983F8E2C008A1D0014CD63 /* Assignment_240524.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Assignment_240524.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -132,6 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				04983FB22C00C8E00014CD63 /* RestaurantTableViewController.swift */,
+				042104932C0862A300E9C613 /* RestaurantMapViewController.swift */,
 				04983FB02C00C8D40014CD63 /* RestaurantTableViewCell.swift */,
 				04983FB42C00C9360014CD63 /* Restaurant.swift */,
 			);
@@ -268,6 +271,7 @@
 				04D43A9B2C070061004D32ED /* TravelDetailViewController.swift in Sources */,
 				04983F942C008A1D0014CD63 /* SceneDelegate.swift in Sources */,
 				04983FB52C00C9360014CD63 /* Restaurant.swift in Sources */,
+				042104942C0862A300E9C613 /* RestaurantMapViewController.swift in Sources */,
 				04D43AAB2C072394004D32ED /* SearchCityViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

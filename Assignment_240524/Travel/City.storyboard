@@ -64,9 +64,26 @@
                     <view key="view" contentMode="scaleToFill" id="2LP-zu-PUr">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E2a-Dr-K68">
+                                <rect key="frame" x="50" y="159" width="293" height="559"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="61Z-48-duR"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="61Z-48-duR" firstAttribute="bottom" secondItem="E2a-Dr-K68" secondAttribute="bottom" constant="100" id="6Sx-mZ-d5r"/>
+                            <constraint firstItem="E2a-Dr-K68" firstAttribute="leading" secondItem="61Z-48-duR" secondAttribute="leading" constant="50" id="Fjg-dx-efx"/>
+                            <constraint firstItem="61Z-48-duR" firstAttribute="trailing" secondItem="E2a-Dr-K68" secondAttribute="trailing" constant="50" id="H7r-hp-2El"/>
+                            <constraint firstItem="E2a-Dr-K68" firstAttribute="top" secondItem="61Z-48-duR" secondAttribute="top" constant="100" id="blb-Yy-vD4"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="adTitleLabel" destination="E2a-Dr-K68" id="yrG-QR-Cwe"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1mz-n2-uel" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

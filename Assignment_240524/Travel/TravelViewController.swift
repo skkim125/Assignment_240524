@@ -11,6 +11,7 @@ class TravelViewController: UIViewController {
     
     @IBOutlet var cityTableView: UITableView!
     var list = TravelInfo().travel // travel 배열
+    var color: UIColor?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,6 +61,7 @@ extension TravelViewController: UITableViewDelegate, UITableViewDataSource {
         if data.ad {
             let adCell = tableView.dequeueReusableCell(withIdentifier: AdTableViewCell.identifier, for: indexPath) as! AdTableViewCell
             adCell.configureAd(title: data.title)
+            color = adCell.adTitleLabel.backgroundColor
             
             return adCell
 
@@ -86,6 +88,9 @@ extension TravelViewController: UITableViewDelegate, UITableViewDataSource {
         
         if data.ad {
             let vc = storyboard?.instantiateViewController(withIdentifier: "AdViewController") as! AdViewController
+            vc.advertisement = data
+            vc.backgroundColor = color
+            
             let nav = UINavigationController(rootViewController: vc)
             
             nav.modalPresentationStyle = .fullScreen

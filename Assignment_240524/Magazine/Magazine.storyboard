@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="21H-xR-SkL">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="bh1-aH-Lqo">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
         <capability name="Image references" minToolsVersion="12.0"/>
+        <capability name="Map view configurations" minToolsVersion="14.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -246,6 +248,37 @@
             </objects>
             <point key="canvasLocation" x="3818" y="-544"/>
         </scene>
+        <!--Restaurant Map View Controller-->
+        <scene sceneID="ymK-cU-Ttu">
+            <objects>
+                <viewController storyboardIdentifier="RestaurantMapViewController" id="rPb-9G-KYk" customClass="RestaurantMapViewController" customModule="Assignment_240524" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ZcI-2d-4C5">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ibo-bi-Fsh">
+                                <rect key="frame" x="0.0" y="103" width="393" height="666"/>
+                                <standardMapConfiguration key="preferredConfiguration"/>
+                            </mapView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="cjA-z6-Kf0"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Ibo-bi-Fsh" firstAttribute="leading" secondItem="cjA-z6-Kf0" secondAttribute="leading" id="6i9-et-pF6"/>
+                            <constraint firstItem="cjA-z6-Kf0" firstAttribute="trailing" secondItem="Ibo-bi-Fsh" secondAttribute="trailing" id="CLV-JL-9iJ"/>
+                            <constraint firstItem="Ibo-bi-Fsh" firstAttribute="top" secondItem="cjA-z6-Kf0" secondAttribute="top" id="nS8-Bi-Kzx"/>
+                            <constraint firstItem="cjA-z6-Kf0" firstAttribute="bottom" secondItem="Ibo-bi-Fsh" secondAttribute="bottom" id="y1N-yJ-Z0U"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="Ocj-AO-bXV"/>
+                    <connections>
+                        <outlet property="restaurantMapView" destination="Ibo-bi-Fsh" id="GgB-yw-iOi"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="s7O-23-nP7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3818" y="182"/>
+        </scene>
         <!--뉴스-->
         <scene sceneID="SGx-Mq-dT3">
             <objects>
@@ -265,10 +298,11 @@
             </objects>
             <point key="canvasLocation" x="34.351145038167935" y="-642.25352112676057"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--맛집 리스트-->
         <scene sceneID="0se-tm-TOk">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="DNF-WP-UVu" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="맛집 리스트" image="list.bullet.rectangle.portrait" catalog="system" id="adA-hM-Lbh"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="o6Q-nM-5ED">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
@@ -281,7 +315,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lXf-Hp-74S" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2805" y="-544"/>
+            <point key="canvasLocation" x="2804" y="-575"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="gxS-dj-o1O">
@@ -361,12 +395,52 @@
             </objects>
             <point key="canvasLocation" x="33" y="890"/>
         </scene>
+        <!--맛집 지도-->
+        <scene sceneID="bIF-ec-cDR">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="doH-Ah-kja" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="맛집 지도" image="map" catalog="system" id="msu-OO-joi"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="qkL-0I-ubP">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="rPb-9G-KYk" kind="relationship" relationship="rootViewController" id="sqM-Qe-LQU"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="q3d-Kj-qYM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2830" y="182"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="VjS-6e-205">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="bh1-aH-Lqo" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="g0h-np-Uok">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="doH-Ah-kja" kind="relationship" relationship="viewControllers" id="Bsb-a7-nWH"/>
+                        <segue destination="DNF-WP-UVu" kind="relationship" relationship="viewControllers" id="fyw-5p-Ha9"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lZm-de-LWA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1976" y="182"/>
+        </scene>
     </scenes>
     <resources>
         <image name="arrow.clockwise.circle" catalog="system" width="128" height="123"/>
         <image name="building.columns" catalog="system" width="128" height="112"/>
         <image name="globe.desk" catalog="system" width="115" height="128"/>
         <image name="heart" catalog="system" width="128" height="107"/>
+        <image name="list.bullet.rectangle.portrait" catalog="system" width="115" height="128"/>
+        <image name="map" catalog="system" width="128" height="112"/>
         <image name="newspaper" catalog="system" width="128" height="111"/>
         <image name="note" catalog="system" width="128" height="107"/>
         <image name="phone" catalog="system" width="128" height="115"/>
