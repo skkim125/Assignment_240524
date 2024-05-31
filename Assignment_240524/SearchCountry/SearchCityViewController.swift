@@ -35,6 +35,7 @@ class SearchCityViewController: UIViewController {
         
         cityTableView.rowHeight = 180
         cityTableView.layer.cornerRadius = 12
+        cityTableView.separatorStyle = .none
         
         let xib = UINib(nibName: SearchCityTableViewCell.identifier, bundle: nil)
         cityTableView.register(xib, forCellReuseIdentifier: SearchCityTableViewCell.identifier)
