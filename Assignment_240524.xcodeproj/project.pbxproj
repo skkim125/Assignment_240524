@@ -55,8 +55,8 @@
 /* Begin PBXFileReference section */
 		0417D86F2C01DB13008D2322 /* BeforeCodeOfResturantTableVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeforeCodeOfResturantTableVIew.swift; sourceTree = "<group>"; };
 		042104932C0862A300E9C613 /* RestaurantMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantMapViewController.swift; sourceTree = "<group>"; };
-		042104A32C09A00300E9C613 /* +Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "+Extension.swift"; path = "../../../../SeSAC Project/SeSAC240528/+Extension.swift"; sourceTree = "<group>"; };
-		042104A62C09A54F00E9C613 /* Chatting.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Chatting.storyboard; path = "../../../../../SeSAC Project/SeSAC240528/Chatting.storyboard"; sourceTree = "<group>"; };
+		042104A32C09A00300E9C613 /* +Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "+Extension.swift"; sourceTree = "<group>"; };
+		042104A62C09A54F00E9C613 /* Chatting.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Chatting.storyboard; path = ../Chatting.storyboard; sourceTree = "<group>"; };
 		042104A82C09A57200E9C613 /* ChattingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ChattingViewController.swift; path = Assignment_240524/ChattingViewController.swift; sourceTree = SOURCE_ROOT; };
 		042104AA2C09A70700E9C613 /* ChattingData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChattingData.swift; sourceTree = "<group>"; };
 		042104AC2C09A84C00E9C613 /* ChattingHomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingHomeTableViewCell.swift; sourceTree = "<group>"; };
