@@ -20,6 +20,8 @@
 		042104B52C09B54A00E9C613 /* UserChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042104B22C09B54A00E9C613 /* UserChatTableViewCell.swift */; };
 		042104BA2C0AD04E00E9C613 /* MyChatTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 042104B92C0AD04E00E9C613 /* MyChatTableViewCell.xib */; };
 		042104BB2C0AD04E00E9C613 /* MyChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042104B82C0AD04E00E9C613 /* MyChatTableViewCell.swift */; };
+		04763B202C0AFF3500399C1A /* +UIDesign.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04763B1F2C0AFF3500399C1A /* +UIDesign.swift */; };
+		04763B222C0B00B000399C1A /* CustomDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04763B212C0B00B000399C1A /* CustomDateFormatter.swift */; };
 		04776DD92C04BFA800251555 /* BeforeRestaurantButtonLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04776DD82C04BFA800251555 /* BeforeRestaurantButtonLogic.swift */; };
 		0492718A2C0726E5009E14D2 /* CityInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049271892C0726E5009E14D2 /* CityInfo.swift */; };
 		04983F922C008A1D0014CD63 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04983F912C008A1D0014CD63 /* AppDelegate.swift */; };
@@ -64,6 +66,8 @@
 		042104B32C09B54A00E9C613 /* UserChatTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserChatTableViewCell.xib; sourceTree = "<group>"; };
 		042104B82C0AD04E00E9C613 /* MyChatTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyChatTableViewCell.swift; sourceTree = "<group>"; };
 		042104B92C0AD04E00E9C613 /* MyChatTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyChatTableViewCell.xib; sourceTree = "<group>"; };
+		04763B1F2C0AFF3500399C1A /* +UIDesign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "+UIDesign.swift"; sourceTree = "<group>"; };
+		04763B212C0B00B000399C1A /* CustomDateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDateFormatter.swift; sourceTree = "<group>"; };
 		04776DD82C04BFA800251555 /* BeforeRestaurantButtonLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeforeRestaurantButtonLogic.swift; sourceTree = "<group>"; };
 		049271892C0726E5009E14D2 /* CityInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityInfo.swift; sourceTree = "<group>"; };
 		04983F8E2C008A1D0014CD63 /* Assignment_240524.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Assignment_240524.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -172,6 +176,8 @@
 				0417D86F2C01DB13008D2322 /* BeforeCodeOfResturantTableVIew.swift */,
 				04776DD82C04BFA800251555 /* BeforeRestaurantButtonLogic.swift */,
 				042104A32C09A00300E9C613 /* +Extension.swift */,
+				04763B1F2C0AFF3500399C1A /* +UIDesign.swift */,
+				04763B212C0B00B000399C1A /* CustomDateFormatter.swift */,
 			);
 			path = Assignment_240524;
 			sourceTree = "<group>";
@@ -315,6 +321,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				042104AF2C09A84C00E9C613 /* ChattingHomeTableViewCell.swift in Sources */,
+				04763B202C0AFF3500399C1A /* +UIDesign.swift in Sources */,
 				04983FAA2C008C070014CD63 /* MagazineTableViewController.swift in Sources */,
 				042104B52C09B54A00E9C613 /* UserChatTableViewCell.swift in Sources */,
 				042104AB2C09A70700E9C613 /* ChattingData.swift in Sources */,
@@ -333,6 +340,7 @@
 				042104BB2C0AD04E00E9C613 /* MyChatTableViewCell.swift in Sources */,
 				04983FB32C00C8E00014CD63 /* RestaurantTableViewController.swift in Sources */,
 				04CDF39D2C046BF6001715D9 /* AdTableViewCell.swift in Sources */,
+				04763B222C0B00B000399C1A /* CustomDateFormatter.swift in Sources */,
 				0492718A2C0726E5009E14D2 /* CityInfo.swift in Sources */,
 				04CDF3922C045BB4001715D9 /* TravelModel.swift in Sources */,
 				04D43A9B2C070061004D32ED /* TravelDetailViewController.swift in Sources */,

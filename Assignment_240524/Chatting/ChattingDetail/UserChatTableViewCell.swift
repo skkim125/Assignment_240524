@@ -8,12 +8,13 @@
 import UIKit
 
 class UserChatTableViewCell: UITableViewCell {
+    @IBOutlet var userMessageBackView: UIView!
     @IBOutlet var userImageView: UIImageView!
     @IBOutlet var userNameLabel: UILabel!
     @IBOutlet var userMessageLabel: UILabel!
     @IBOutlet var userMessageDateLabel: UILabel!
     
-    var chat: Chat?
+    var dateFormat = CustomDateFormat()
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -23,14 +24,19 @@ class UserChatTableViewCell: UITableViewCell {
     }
 
     func userChatDetailTableViewCellUI() {
-        userMessageLabel.numberOfLines = 0
+        
+        messageBorder(userMessageBackView, borderColor: UIColor.darkGray.cgColor, backgroundColor: .clear)
+        imageCircleBorder(userImageView, contentMode: .scaleToFill, borderColor: UIColor.darkGray.cgColor)
+        nameLabel(userNameLabel)
+        messageUI(userMessageLabel, lines: 0)
+        dateLabelUI(userMessageDateLabel)
     }
     
     func userChatTableViewCell(data: Chat) {
         userImageView.image = UIImage(named: data.user.profileImage)
         userNameLabel.text = data.user.rawValue
         userMessageLabel.text = data.message
-        userMessageDateLabel.text = data.date
+        userMessageDateLabel.text = dateFormat.dateFormatTime(date: data.date)
     }
     
     

@@ -5,6 +5,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -17,38 +18,56 @@
                 <rect key="frame" x="0.0" y="0.0" width="352" height="120"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sSN-b2-N5T">
+                        <rect key="frame" x="282.66666666666669" y="16.000000000000004" width="57.333333333333314" height="36.333333333333343"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jTf-CV-tyM">
+                                <rect key="frame" x="8" y="7.9999999999999982" width="41.333333333333336" height="20.333333333333329"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="jTf-CV-tyM" firstAttribute="top" secondItem="sSN-b2-N5T" secondAttribute="top" constant="8" id="Jzp-ti-m9B"/>
+                            <constraint firstAttribute="trailing" secondItem="jTf-CV-tyM" secondAttribute="trailing" constant="8" id="bia-G1-XSB"/>
+                            <constraint firstAttribute="bottom" secondItem="jTf-CV-tyM" secondAttribute="bottom" constant="8" id="els-zr-Tdn"/>
+                            <constraint firstItem="jTf-CV-tyM" firstAttribute="leading" secondItem="sSN-b2-N5T" secondAttribute="leading" constant="8" id="f0t-no-sCR"/>
+                        </constraints>
+                    </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Md-iZ-DM1">
-                        <rect key="frame" x="246.66666666666663" y="90" width="44" height="22"/>
+                        <rect key="frame" x="218.66666666666666" y="90" width="59.999999999999972" height="22"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="22" id="SWL-Os-EOL"/>
-                            <constraint firstAttribute="width" constant="44" id="t7C-UP-y51"/>
+                            <constraint firstAttribute="width" constant="60" id="t7C-UP-y51"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jTf-CV-tyM">
-                        <rect key="frame" x="298.66666666666669" y="7.9999999999999982" width="41.333333333333314" height="20.333333333333329"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="jTf-CV-tyM" secondAttribute="bottom" constant="12" id="0wt-ct-Ixz"/>
-                    <constraint firstItem="jTf-CV-tyM" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="7Hc-MS-iZb"/>
+                    <constraint firstItem="sSN-b2-N5T" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="HQk-9I-PTo"/>
+                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="sSN-b2-N5T" secondAttribute="bottom" constant="12" id="KtL-mb-eIf"/>
                     <constraint firstAttribute="bottom" secondItem="0Md-iZ-DM1" secondAttribute="bottom" constant="8" id="NQX-d5-cAS"/>
-                    <constraint firstItem="jTf-CV-tyM" firstAttribute="leading" secondItem="0Md-iZ-DM1" secondAttribute="trailing" constant="8" id="Raz-KE-X1z"/>
+                    <constraint firstItem="sSN-b2-N5T" firstAttribute="leading" secondItem="0Md-iZ-DM1" secondAttribute="trailing" constant="4" id="QBG-p2-glm"/>
                     <constraint firstItem="0Md-iZ-DM1" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="12" id="evC-vW-Ljb"/>
-                    <constraint firstAttribute="trailing" secondItem="jTf-CV-tyM" secondAttribute="trailing" constant="12" id="qLx-Yw-8MZ"/>
+                    <constraint firstAttribute="trailing" secondItem="sSN-b2-N5T" secondAttribute="trailing" constant="12" id="iUR-qC-PBq"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="myMessageBackView" destination="sSN-b2-N5T" id="KEd-Vr-2Jc"/>
                 <outlet property="myMessageDateLabel" destination="0Md-iZ-DM1" id="TEK-1r-MG4"/>
                 <outlet property="myMessageLabel" destination="jTf-CV-tyM" id="A0h-Ns-7H0"/>
             </connections>
             <point key="canvasLocation" x="154.19847328244273" y="14.084507042253522"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>

@@ -10,15 +10,35 @@ import UIKit
 class ChattingDetailViewController: UIViewController {
     @IBOutlet var chattingDetailTableView: UITableView!
     var chatList: [Chat]?
+    var chatName: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        navigationItem.title = "대화"
         
+        navigationTabUI(name: chatName)
+        detailTableViewSetting()
+    }
+    
+    func navigationTabUI(name: String?) {
+        if let n = name {
+            navigationItem.title = "\(n)"
+        }
+        
+        let backButton = UIBarButtonItem(image: UIImage(systemName: "chevron.backward"), style: .plain, target: self, action: #selector(dismissAction))
+        backButton.tintColor = .black
+        
+        navigationItem.leftBarButtonItem = backButton
+    }
+    
+    @objc func dismissAction() {
+        navigationController?.popViewController(animated: true)
+    }
+    
+    func detailTableViewSetting() {
         chattingDetailTableView.delegate = self
         chattingDetailTableView.dataSource = self
         chattingDetailTableView.rowHeight = UITableView.automaticDimension
+        chattingDetailTableView.separatorStyle = .none
         
         let userChatXib = UINib(nibName: UserChatTableViewCell.identifier, bundle: nil)
         chattingDetailTableView.register(userChatXib, forCellReuseIdentifier: UserChatTableViewCell.identifier)
@@ -26,7 +46,6 @@ class ChattingDetailViewController: UIViewController {
         let myChatXib = UINib(nibName: MyChatTableViewCell.identifier, bundle: nil)
         chattingDetailTableView.register(myChatXib, forCellReuseIdentifier: MyChatTableViewCell.identifier)
     }
-    
 }
 
 

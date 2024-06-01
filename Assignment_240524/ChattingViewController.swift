@@ -15,16 +15,19 @@ class ChattingViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        navigationItem.title = "트래블톡"
+        mainTableViewSetting()
+    }
+    
+    func mainTableViewSetting() {
         chattingTableView.delegate = self
         chattingTableView.dataSource = self
-        
-        let xib = UINib(nibName: ChattingHomeTableViewCell.identifier, bundle: nil)
-        chattingTableView.register(xib, forCellReuseIdentifier: ChattingHomeTableViewCell.identifier)
-        
         chattingTableView.rowHeight = 80
         chattingTableView.separatorStyle = .none
         
-        navigationItem.title = "트래블톡"
+        let xib = UINib(nibName: ChattingHomeTableViewCell.identifier, bundle: nil)
+        chattingTableView.register(xib, forCellReuseIdentifier: ChattingHomeTableViewCell.identifier)
     }
     
 }
@@ -49,7 +52,7 @@ extension ChattingViewController: UITableViewDelegate, UITableViewDataSource {
         let vc = storyboard?.instantiateViewController(withIdentifier: ChattingDetailViewController.identifier) as! ChattingDetailViewController
         
         vc.chatList = chattingList[indexPath.row].chatList
-        
+        vc.chatName = chattingList[indexPath.row].chatroomName
         
         navigationController?.pushViewController(vc, animated: true)
     }

@@ -13,6 +13,8 @@ class ChattingHomeTableViewCell: UITableViewCell {
     @IBOutlet var recentDateLabel: UILabel!
     @IBOutlet var lastChatLabel: UILabel!
     
+    var dateFormat = CustomDateFormat()
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -21,33 +23,26 @@ class ChattingHomeTableViewCell: UITableViewCell {
     }
 
     func chattingHomeTablecellUI() {
-        friendNameLabel.font = .boldSystemFont(ofSize: 15)
-        friendNameLabel.numberOfLines = 1
+        homeChatUserNameLabelUI(friendNameLabel)
+        homeChatRecentDateLabelUI(recentDateLabel)
+        homeChatLastChatLabel(lastChatLabel)
         
-        recentDateLabel.font = .systemFont(ofSize: 14)
-        recentDateLabel.textColor = .lightGray
-        recentDateLabel.numberOfLines = 1
-        
-        lastChatLabel.font = .systemFont(ofSize: 14)
-        lastChatLabel.textColor = .gray
-        lastChatLabel.numberOfLines = 1
+        thumbnailImageView.clipsToBounds = true
     }
     
     func chattingHomeTablecell(_ data: ChatRoom) {
-        thumbnailImageView.image = UIImage(named: data.chatroomImage[0])
+        guard let lastChat = data.chatList.last else { return }
         
+        thumbnailImageView.image = UIImage(named: data.chatroomImage.first ?? "")
         friendNameLabel.text = data.chatroomName
-        
-        recentDateLabel.text = data.chatList.last!.date
-        
-        lastChatLabel.text = data.chatList.last!.message
+        recentDateLabel.text = dateFormat.dateFormatDate(date: lastChat.date)
+        lastChatLabel.text = lastChat.message
         
     }
     
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        thumbnailImageView.clipsToBounds = true
-        thumbnailImageView.layer.cornerRadius = thumbnailImageView.frame.width / 2
+        imageCircleBorder(thumbnailImageView, contentMode: .scaleToFill, borderColor: UIColor.darkGray.cgColor)
     }
 }

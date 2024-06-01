@@ -8,8 +8,11 @@
 import UIKit
 
 class MyChatTableViewCell: UITableViewCell {
+    @IBOutlet var myMessageBackView: UIView!
     @IBOutlet var myMessageLabel: UILabel!
     @IBOutlet var myMessageDateLabel: UILabel!
+    
+    var dateFormat = CustomDateFormat()
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -18,12 +21,14 @@ class MyChatTableViewCell: UITableViewCell {
     }
 
     func myChatDetailTableViewCellUI() {
-        myMessageLabel.numberOfLines = 0
+        messageBorder(myMessageBackView, borderColor: UIColor.darkGray.cgColor, backgroundColor: .lightGray.withAlphaComponent(0.3))
+        messageUI(myMessageLabel, lines: 0)
+        dateLabelUI(myMessageDateLabel)
     }
     
     func myChatTableViewCell(data: Chat) {
         myMessageLabel.text = data.message
-        myMessageDateLabel.text = data.date
+        myMessageDateLabel.text = dateFormat.dateFormatTime(date: data.date)
     }
     
 }
