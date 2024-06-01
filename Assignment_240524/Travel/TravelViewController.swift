@@ -87,7 +87,7 @@ extension TravelViewController: UITableViewDelegate, UITableViewDataSource {
         let data = list[indexPath.row]
         
         if data.ad {
-            let vc = storyboard?.instantiateViewController(withIdentifier: "AdViewController") as! AdViewController
+            let vc = storyboard?.instantiateViewController(withIdentifier: AdViewController.identifier) as! AdViewController
             vc.advertisement = data
             vc.backgroundColor = color
             
@@ -99,7 +99,7 @@ extension TravelViewController: UITableViewDelegate, UITableViewDataSource {
             
         } else {
             let sb = UIStoryboard(name: "TravelDetailView", bundle: nil)
-            let vc = sb.instantiateViewController(withIdentifier: "TravelDetailViewController") as! TravelDetailViewController
+            let vc = sb.instantiateViewController(withIdentifier: TravelDetailViewController.identifier) as! TravelDetailViewController
         
             vc.travel = data
             

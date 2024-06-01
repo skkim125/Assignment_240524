@@ -331,6 +331,7 @@
                         <segue destination="DdN-tc-8af" kind="relationship" relationship="viewControllers" id="1Cg-gh-xHa"/>
                         <segue destination="mmy-FX-YCU" kind="relationship" relationship="viewControllers" id="Mhz-99-VME"/>
                         <segue destination="ZTQ-My-kxu" kind="relationship" relationship="viewControllers" id="z8O-UQ-LY9"/>
+                        <segue destination="fUd-3z-0At" kind="relationship" relationship="viewControllers" id="fpt-w2-fJL"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uCV-8t-bt9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -395,6 +396,16 @@
             </objects>
             <point key="canvasLocation" x="33" y="890"/>
         </scene>
+        <!--Chatting-->
+        <scene sceneID="uOt-hg-vt1">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Chatting" id="QYp-iU-hLI" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="BGt-GQ-95M"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2Lr-BH-kdJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="998" y="1677"/>
+        </scene>
         <!--맛집 지도-->
         <scene sceneID="bIF-ec-cDR">
             <objects>
@@ -433,10 +444,30 @@
             </objects>
             <point key="canvasLocation" x="1976" y="182"/>
         </scene>
+        <!--채팅-->
+        <scene sceneID="Duz-Ap-DVq">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="fUd-3z-0At" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="채팅" image="ellipsis.message" catalog="system" id="dUx-Cp-J6d"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="lJQ-5T-CdJ">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="QYp-iU-hLI" kind="relationship" relationship="rootViewController" id="Gjt-vj-9wy"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MrF-fm-I9t" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="34" y="1677"/>
+        </scene>
     </scenes>
     <resources>
         <image name="arrow.clockwise.circle" catalog="system" width="128" height="123"/>
         <image name="building.columns" catalog="system" width="128" height="112"/>
+        <image name="ellipsis.message" catalog="system" width="128" height="116"/>
         <image name="globe.desk" catalog="system" width="115" height="128"/>
         <image name="heart" catalog="system" width="128" height="107"/>
         <image name="list.bullet.rectangle.portrait" catalog="system" width="115" height="128"/>

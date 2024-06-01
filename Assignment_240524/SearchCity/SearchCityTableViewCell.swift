@@ -9,8 +9,6 @@ import UIKit
 import Kingfisher
 
 class SearchCityTableViewCell: UITableViewCell {
-    static let identifier = "SearchCityTableViewCell"
-
     @IBOutlet var backView: UIView!
     @IBOutlet var searchCityImageView1: UIImageView!
     @IBOutlet var cityNameLabel1: UILabel!

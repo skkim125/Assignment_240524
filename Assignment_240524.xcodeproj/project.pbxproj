@@ -9,6 +9,17 @@
 /* Begin PBXBuildFile section */
 		0417D8702C01DB13008D2322 /* BeforeCodeOfResturantTableVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0417D86F2C01DB13008D2322 /* BeforeCodeOfResturantTableVIew.swift */; };
 		042104942C0862A300E9C613 /* RestaurantMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042104932C0862A300E9C613 /* RestaurantMapViewController.swift */; };
+		042104A42C09A00300E9C613 /* +Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042104A32C09A00300E9C613 /* +Extension.swift */; };
+		042104A72C09A54F00E9C613 /* Chatting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 042104A62C09A54F00E9C613 /* Chatting.storyboard */; };
+		042104A92C09A57200E9C613 /* ChattingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042104A82C09A57200E9C613 /* ChattingViewController.swift */; };
+		042104AB2C09A70700E9C613 /* ChattingData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042104AA2C09A70700E9C613 /* ChattingData.swift */; };
+		042104AE2C09A84C00E9C613 /* ChattingHomeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 042104AD2C09A84C00E9C613 /* ChattingHomeTableViewCell.xib */; };
+		042104AF2C09A84C00E9C613 /* ChattingHomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042104AC2C09A84C00E9C613 /* ChattingHomeTableViewCell.swift */; };
+		042104B12C09B40000E9C613 /* ChattingDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042104B02C09B40000E9C613 /* ChattingDetailViewController.swift */; };
+		042104B42C09B54A00E9C613 /* UserChatTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 042104B32C09B54A00E9C613 /* UserChatTableViewCell.xib */; };
+		042104B52C09B54A00E9C613 /* UserChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042104B22C09B54A00E9C613 /* UserChatTableViewCell.swift */; };
+		042104BA2C0AD04E00E9C613 /* MyChatTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 042104B92C0AD04E00E9C613 /* MyChatTableViewCell.xib */; };
+		042104BB2C0AD04E00E9C613 /* MyChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042104B82C0AD04E00E9C613 /* MyChatTableViewCell.swift */; };
 		04776DD92C04BFA800251555 /* BeforeRestaurantButtonLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04776DD82C04BFA800251555 /* BeforeRestaurantButtonLogic.swift */; };
 		0492718A2C0726E5009E14D2 /* CityInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049271892C0726E5009E14D2 /* CityInfo.swift */; };
 		04983F922C008A1D0014CD63 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04983F912C008A1D0014CD63 /* AppDelegate.swift */; };
@@ -42,6 +53,17 @@
 /* Begin PBXFileReference section */
 		0417D86F2C01DB13008D2322 /* BeforeCodeOfResturantTableVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeforeCodeOfResturantTableVIew.swift; sourceTree = "<group>"; };
 		042104932C0862A300E9C613 /* RestaurantMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantMapViewController.swift; sourceTree = "<group>"; };
+		042104A32C09A00300E9C613 /* +Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "+Extension.swift"; path = "../../../../SeSAC Project/SeSAC240528/+Extension.swift"; sourceTree = "<group>"; };
+		042104A62C09A54F00E9C613 /* Chatting.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Chatting.storyboard; path = "../../../../../SeSAC Project/SeSAC240528/Chatting.storyboard"; sourceTree = "<group>"; };
+		042104A82C09A57200E9C613 /* ChattingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ChattingViewController.swift; path = Assignment_240524/ChattingViewController.swift; sourceTree = SOURCE_ROOT; };
+		042104AA2C09A70700E9C613 /* ChattingData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChattingData.swift; sourceTree = "<group>"; };
+		042104AC2C09A84C00E9C613 /* ChattingHomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingHomeTableViewCell.swift; sourceTree = "<group>"; };
+		042104AD2C09A84C00E9C613 /* ChattingHomeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChattingHomeTableViewCell.xib; sourceTree = "<group>"; };
+		042104B02C09B40000E9C613 /* ChattingDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingDetailViewController.swift; sourceTree = "<group>"; };
+		042104B22C09B54A00E9C613 /* UserChatTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserChatTableViewCell.swift; sourceTree = "<group>"; };
+		042104B32C09B54A00E9C613 /* UserChatTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserChatTableViewCell.xib; sourceTree = "<group>"; };
+		042104B82C0AD04E00E9C613 /* MyChatTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyChatTableViewCell.swift; sourceTree = "<group>"; };
+		042104B92C0AD04E00E9C613 /* MyChatTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyChatTableViewCell.xib; sourceTree = "<group>"; };
 		04776DD82C04BFA800251555 /* BeforeRestaurantButtonLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeforeRestaurantButtonLogic.swift; sourceTree = "<group>"; };
 		049271892C0726E5009E14D2 /* CityInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityInfo.swift; sourceTree = "<group>"; };
 		04983F8E2C008A1D0014CD63 /* Assignment_240524.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Assignment_240524.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -85,6 +107,39 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		042104A52C09A52700E9C613 /* Chatting */ = {
+			isa = PBXGroup;
+			children = (
+				042104A62C09A54F00E9C613 /* Chatting.storyboard */,
+				042104A82C09A57200E9C613 /* ChattingViewController.swift */,
+				042104B62C09B55E00E9C613 /* ChattingHome */,
+				042104B02C09B40000E9C613 /* ChattingDetailViewController.swift */,
+				042104B72C09B57700E9C613 /* ChattingDetail */,
+				042104AA2C09A70700E9C613 /* ChattingData.swift */,
+			);
+			path = Chatting;
+			sourceTree = "<group>";
+		};
+		042104B62C09B55E00E9C613 /* ChattingHome */ = {
+			isa = PBXGroup;
+			children = (
+				042104AD2C09A84C00E9C613 /* ChattingHomeTableViewCell.xib */,
+				042104AC2C09A84C00E9C613 /* ChattingHomeTableViewCell.swift */,
+			);
+			path = ChattingHome;
+			sourceTree = "<group>";
+		};
+		042104B72C09B57700E9C613 /* ChattingDetail */ = {
+			isa = PBXGroup;
+			children = (
+				042104B32C09B54A00E9C613 /* UserChatTableViewCell.xib */,
+				042104B22C09B54A00E9C613 /* UserChatTableViewCell.swift */,
+				042104B92C0AD04E00E9C613 /* MyChatTableViewCell.xib */,
+				042104B82C0AD04E00E9C613 /* MyChatTableViewCell.swift */,
+			);
+			path = ChattingDetail;
+			sourceTree = "<group>";
+		};
 		04983F852C008A1D0014CD63 = {
 			isa = PBXGroup;
 			children = (
@@ -109,12 +164,14 @@
 				04D43A942C060A9F004D32ED /* Restaurant */,
 				04D43A932C060A85004D32ED /* Magazine */,
 				04D43A952C060AB0004D32ED /* Travel */,
+				04D43AA32C0722AC004D32ED /* SearchCity */,
+				042104A52C09A52700E9C613 /* Chatting */,
 				04983F9A2C008A1E0014CD63 /* Assets.xcassets */,
-				04D43AA32C0722AC004D32ED /* SearchCountry */,
 				04983F9C2C008A1E0014CD63 /* LaunchScreen.storyboard */,
 				04983F9F2C008A1E0014CD63 /* Info.plist */,
 				0417D86F2C01DB13008D2322 /* BeforeCodeOfResturantTableVIew.swift */,
 				04776DD82C04BFA800251555 /* BeforeRestaurantButtonLogic.swift */,
+				042104A32C09A00300E9C613 /* +Extension.swift */,
 			);
 			path = Assignment_240524;
 			sourceTree = "<group>";
@@ -158,7 +215,7 @@
 			path = Travel;
 			sourceTree = "<group>";
 		};
-		04D43AA32C0722AC004D32ED /* SearchCountry */ = {
+		04D43AA32C0722AC004D32ED /* SearchCity */ = {
 			isa = PBXGroup;
 			children = (
 				04D43AA42C0722C3004D32ED /* SearchCity.storyboard */,
@@ -167,7 +224,7 @@
 				04D43AA62C072361004D32ED /* SearchCityTableViewCell.swift */,
 				049271892C0726E5009E14D2 /* CityInfo.swift */,
 			);
-			path = SearchCountry;
+			path = SearchCity;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -234,8 +291,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				042104A72C09A54F00E9C613 /* Chatting.storyboard in Resources */,
 				04D43AA82C072361004D32ED /* SearchCityTableViewCell.xib in Resources */,
+				042104AE2C09A84C00E9C613 /* ChattingHomeTableViewCell.xib in Resources */,
 				04CDF39A2C045C52001715D9 /* CityTableViewCell.xib in Resources */,
+				042104B42C09B54A00E9C613 /* UserChatTableViewCell.xib in Resources */,
+				042104BA2C0AD04E00E9C613 /* MyChatTableViewCell.xib in Resources */,
 				04D43AA52C0722C3004D32ED /* SearchCity.storyboard in Resources */,
 				04D43AA12C070F13004D32ED /* TravelDetailView.storyboard in Resources */,
 				04983F9B2C008A1E0014CD63 /* Assets.xcassets in Resources */,
@@ -253,17 +314,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				042104AF2C09A84C00E9C613 /* ChattingHomeTableViewCell.swift in Sources */,
 				04983FAA2C008C070014CD63 /* MagazineTableViewController.swift in Sources */,
+				042104B52C09B54A00E9C613 /* UserChatTableViewCell.swift in Sources */,
+				042104AB2C09A70700E9C613 /* ChattingData.swift in Sources */,
 				0417D8702C01DB13008D2322 /* BeforeCodeOfResturantTableVIew.swift in Sources */,
 				04983FA62C008B3B0014CD63 /* MagazineInfo.swift in Sources */,
+				042104A42C09A00300E9C613 /* +Extension.swift in Sources */,
 				04D43AA92C072361004D32ED /* SearchCityTableViewCell.swift in Sources */,
 				04983FAC2C0092C60014CD63 /* MagazineTableViewCell.swift in Sources */,
 				04983F922C008A1D0014CD63 /* AppDelegate.swift in Sources */,
 				04D43A9D2C07007A004D32ED /* AdViewController.swift in Sources */,
 				04776DD92C04BFA800251555 /* BeforeRestaurantButtonLogic.swift in Sources */,
+				042104B12C09B40000E9C613 /* ChattingDetailViewController.swift in Sources */,
 				04CDF3942C045BDD001715D9 /* TravelViewController.swift in Sources */,
 				04CDF3992C045C52001715D9 /* CityTableViewCell.swift in Sources */,
 				04983FB12C00C8D40014CD63 /* RestaurantTableViewCell.swift in Sources */,
+				042104BB2C0AD04E00E9C613 /* MyChatTableViewCell.swift in Sources */,
 				04983FB32C00C8E00014CD63 /* RestaurantTableViewController.swift in Sources */,
 				04CDF39D2C046BF6001715D9 /* AdTableViewCell.swift in Sources */,
 				0492718A2C0726E5009E14D2 /* CityInfo.swift in Sources */,
@@ -272,6 +339,7 @@
 				04983F942C008A1D0014CD63 /* SceneDelegate.swift in Sources */,
 				04983FB52C00C9360014CD63 /* Restaurant.swift in Sources */,
 				042104942C0862A300E9C613 /* RestaurantMapViewController.swift in Sources */,
+				042104A92C09A57200E9C613 /* ChattingViewController.swift in Sources */,
 				04D43AAB2C072394004D32ED /* SearchCityViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

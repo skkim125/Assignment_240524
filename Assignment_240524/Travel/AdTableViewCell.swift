@@ -8,14 +8,12 @@
 import UIKit
 
 class AdTableViewCell: UITableViewCell {
-    static let identifier = "AdTableViewCell"
-    
     @IBOutlet var adTitleLabel: UILabel!
     @IBOutlet var adLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        print("AdTableViewCell\(#function)")
+        
         configureAdUI()
     }
     
@@ -49,6 +47,6 @@ extension AdTableViewCell {
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        print("AdTableViewCell\(#function)")
+        
     }
 }

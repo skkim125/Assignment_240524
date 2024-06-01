@@ -9,8 +9,6 @@ import UIKit
 
 // Intrinsic Content size
 class CityTableViewCell: UITableViewCell {
-
-    static let identifier = "CityTableViewCell"
     
     @IBOutlet var nameLabel: UILabel!
     @IBOutlet var descriptionLabel: UILabel!
@@ -21,7 +19,7 @@ class CityTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        print("CityTableViewCell\(#function)")
+
         configureCityCellLabelUI()
     }
     
@@ -121,7 +119,6 @@ extension CityTableViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
 
-        print("CityTableViewCell\(#function)")
         
     }
 }
