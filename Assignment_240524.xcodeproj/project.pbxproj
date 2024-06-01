@@ -173,11 +173,11 @@
 				04983F9A2C008A1E0014CD63 /* Assets.xcassets */,
 				04983F9C2C008A1E0014CD63 /* LaunchScreen.storyboard */,
 				04983F9F2C008A1E0014CD63 /* Info.plist */,
-				0417D86F2C01DB13008D2322 /* BeforeCodeOfResturantTableVIew.swift */,
-				04776DD82C04BFA800251555 /* BeforeRestaurantButtonLogic.swift */,
 				042104A32C09A00300E9C613 /* +Extension.swift */,
 				04763B1F2C0AFF3500399C1A /* +UIDesign.swift */,
 				04763B212C0B00B000399C1A /* CustomDateFormatter.swift */,
+				0417D86F2C01DB13008D2322 /* BeforeCodeOfResturantTableVIew.swift */,
+				04776DD82C04BFA800251555 /* BeforeRestaurantButtonLogic.swift */,
 			);
 			path = Assignment_240524;
 			sourceTree = "<group>";
