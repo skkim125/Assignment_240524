@@ -12,6 +12,7 @@ class ChattingViewController: UIViewController {
     @IBOutlet var chattingTableView: UITableView!
     
     let chattingList = mockChatList
+    var filterList = mockChatList
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,14 +36,13 @@ class ChattingViewController: UIViewController {
 extension ChattingViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return chattingList.count
+        return filterList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let data = chattingList[indexPath.row]
+        let data = filterList[indexPath.row]
         
         let chatCell = tableView.dequeueReusableCell(withIdentifier: ChattingHomeTableViewCell.identifier, for: indexPath) as! ChattingHomeTableViewCell
-        
         chatCell.chattingHomeTablecell(data)
         
         return chatCell
@@ -51,9 +51,40 @@ extension ChattingViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = storyboard?.instantiateViewController(withIdentifier: ChattingDetailViewController.identifier) as! ChattingDetailViewController
         
-        vc.chatList = chattingList[indexPath.row].chatList
-        vc.chatName = chattingList[indexPath.row].chatroomName
+        vc.chatList = filterList[indexPath.row].chatList
+        vc.chatName = filterList[indexPath.row].chatroomName
         
         navigationController?.pushViewController(vc, animated: true)
+        
+        tableView.reloadRows(at: [indexPath], with: .automatic)
     }
+}
+
+extension ChattingViewController: UISearchBarDelegate {
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        // searchBar.text와 mockChatList[ChatRoom]의 Chat의 user(string)와 일치해야함
+        guard let text = searchBar.text, !text.trimmingCharacters(in: .whitespaces).isEmpty else {
+            searchBar.placeholder = "한글자 이상 입력하세요"
+            filterList = chattingList
+            chattingTableView.reloadData()
+            return
+        }
+        var chatList: [ChatRoom] = []
+        
+        for chatRoom in mockChatList {
+            if chatRoom.chatroomName.lowercased().contains(text.lowercased()) {
+                chatList.append(chatRoom)
+            }
+        }
+        
+        filterList = chatList
+        chattingTableView.reloadData()
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        filterList = chattingList
+        chattingTableView.reloadData()
+    }
+    
 }

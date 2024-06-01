@@ -19,7 +19,6 @@ class ChattingHomeTableViewCell: UITableViewCell {
         super.awakeFromNib()
         
         chattingHomeTablecellUI()
-        
     }
 
     func chattingHomeTablecellUI() {
@@ -39,10 +38,17 @@ class ChattingHomeTableViewCell: UITableViewCell {
         lastChatLabel.text = lastChat.message
         
     }
-    
+
     override func layoutSubviews() {
         super.layoutSubviews()
         
         imageCircleBorder(thumbnailImageView, contentMode: .scaleToFill, borderColor: UIColor.darkGray.cgColor)
+        
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        backgroundColor = .clear
     }
 }
