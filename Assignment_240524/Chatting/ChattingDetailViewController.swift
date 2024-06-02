@@ -9,6 +9,10 @@ import UIKit
 
 class ChattingDetailViewController: UIViewController {
     @IBOutlet var chattingDetailTableView: UITableView!
+    @IBOutlet var textViewBackView: UIView!
+    @IBOutlet var messageTextView: UITextView!
+    @IBOutlet var placeholderLabel: UILabel!
+    @IBOutlet var sendTextButton: UIButton!
     var chatList: [Chat]?
     var chatName: String?
     
@@ -17,8 +21,11 @@ class ChattingDetailViewController: UIViewController {
         
         navigationTabUI(name: chatName)
         detailTableViewSetting()
+        messageTextViewUI()
+        messageTextView.isScrollEnabled = false
     }
     
+    // 네비게이션바 UI
     func navigationTabUI(name: String?) {
         if let n = name {
             navigationItem.title = "\(n)"
@@ -30,10 +37,12 @@ class ChattingDetailViewController: UIViewController {
         navigationItem.leftBarButtonItem = backButton
     }
     
+    // 뒤로가기
     @objc func dismissAction() {
         navigationController?.popViewController(animated: true)
     }
     
+    // chattingDetailTableView UI
     func detailTableViewSetting() {
         chattingDetailTableView.delegate = self
         chattingDetailTableView.dataSource = self
@@ -46,6 +55,7 @@ class ChattingDetailViewController: UIViewController {
         let myChatXib = UINib(nibName: MyChatTableViewCell.identifier, bundle: nil)
         chattingDetailTableView.register(myChatXib, forCellReuseIdentifier: MyChatTableViewCell.identifier)
         
+        chattingDetailTableView.backgroundColor = .lightGray.withAlphaComponent(0.2)
         // 방법 2) 비동기 작업
         //DispatchQueue.main.async {
         //    self.setScrollBottom()
@@ -61,11 +71,39 @@ class ChattingDetailViewController: UIViewController {
         setScrollBottom()
     }
     
+    // 채팅방 맨 하단으로 이동하는 메서드
     func setScrollBottom() {
         guard let chats = chatList else { return }
         let endIndex = IndexPath(row: chats.count - 1, section: 0)
         
         chattingDetailTableView.scrollToRow(at: endIndex, at: .bottom, animated: false)
+    }
+    
+    // 메세지 입력창 텍스트뷰 UI
+    func messageTextViewUI() {
+        messageTextView.delegate = self
+        
+        textViewBackView.backgroundColor = .clear
+        textViewBackView.layer.borderColor = UIColor.lightGray.cgColor
+        textViewBackView.layer.borderWidth = 0.3
+        
+        messageTextView.font = .systemFont(ofSize: messageTextView.font!.lineHeight)
+        messageTextView.layer.cornerRadius = 8
+        messageTextView.layer.borderColor = UIColor.gray.cgColor
+        messageTextView.layer.borderWidth = 0.3
+        messageTextView.textContainerInset.left = 4
+        messageTextView.textContainerInset.right = 4
+        
+        placeholderLabel.text = "메세지를 입력하세요."
+        placeholderLabel.font = .systemFont(ofSize: 18)
+        placeholderLabel.textColor = .lightGray
+        
+        sendTextButton.setImage(UIImage(systemName: "paperplane.fill"), for: .normal)
+        sendTextButton.setTitle(nil, for: .normal)
+        sendTextButton.tintColor = .white
+        sendTextButton.backgroundColor = .systemTeal
+        sendTextButton.layer.cornerRadius = 8
+        sendTextButton.imageView?.contentMode = .scaleAspectFit
     }
 }
 
@@ -89,9 +127,13 @@ extension ChattingDetailViewController: UITableViewDelegate, UITableViewDataSour
             
             if data[indexPath.row].user == .user {
                 myChatDetailCell.myChatTableViewCell(data: data[indexPath.row])
+                myChatDetailCell.selectionStyle = .none
+                myChatDetailCell.backgroundColor = .clear
                 return myChatDetailCell
             } else {
                 userChatDetailCell.userChatTableViewCell(data: data[indexPath.row])
+                userChatDetailCell.selectionStyle = .none
+                userChatDetailCell.backgroundColor = .clear
                 return userChatDetailCell
             }
             
@@ -109,4 +151,44 @@ extension ChattingDetailViewController: UITableViewDelegate, UITableViewDataSour
 //        print(indexPath.row)
 //        tableView.scrollToRow(at: endIndex, at: .bottom, animated: false)
 //    }
+}
+
+extension ChattingDetailViewController: UITextViewDelegate {
+    
+    // 텍스트뷰 입력 시작하면 placeholder 비우기
+//    func textViewDidBeginEditing(_ textView: UITextView) {
+//        if textView.text.isEmpty {
+//            placeholderLabel.text = ""
+//        }
+//    }
+    
+    func textViewDidChange(_ textView: UITextView) {
+        let size = CGSize(width: textView.frame.width, height: .infinity)
+        let estimatedSize = textView.sizeThatFits(size)
+        let numberOfLines = Int(estimatedSize.height / (textView.font!.lineHeight))
+        
+        textView.constraints.forEach { constraint in
+            
+            if constraint.firstAttribute == .height && numberOfLines <= 3{
+                constraint.constant = estimatedSize.height
+            } else if numberOfLines > 3 {
+                messageTextView.isScrollEnabled = true
+            }
+        }
+        
+        if !textView.text.isEmpty {
+            placeholderLabel.text = ""
+        } else {
+            placeholderLabel.text = "메세지를 입력해주세요."
+        }
+    }
+    
+    //    // 텍스트뷰 줄 갯수 확인 메서드
+    //    func numberOfLine() -> Int {
+    //
+    //        let size = CGSize(width: self.frame.width, height: .infinity)
+    //        let estimatedSize = sizeThatFits(size)
+    //
+    //        return Int(estimatedSize.height / (self.font!.lineHeight))
+    //    }
 }

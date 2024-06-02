@@ -19,13 +19,12 @@ class UserChatTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        
         userChatDetailTableViewCellUI()
     }
 
     func userChatDetailTableViewCellUI() {
         
-        messageBorder(userMessageBackView, borderColor: UIColor.darkGray.cgColor, backgroundColor: .clear)
+        messageBorder(userMessageBackView, borderColor: UIColor.darkGray.cgColor, backgroundColor: .white)
         imageCircleBorder(userImageView, contentMode: .scaleToFill, borderColor: UIColor.darkGray.cgColor)
         nameLabel(userNameLabel)
         messageUI(userMessageLabel, lines: 0)
