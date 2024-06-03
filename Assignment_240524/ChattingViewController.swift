@@ -19,6 +19,7 @@ class ChattingViewController: UIViewController {
 
         navigationItem.title = "트래블톡"
         mainTableViewSetting()
+        hideKeyboard()
     }
     
     func mainTableViewSetting() {
@@ -29,6 +30,7 @@ class ChattingViewController: UIViewController {
         
         let xib = UINib(nibName: ChattingHomeTableViewCell.identifier, bundle: nil)
         chattingTableView.register(xib, forCellReuseIdentifier: ChattingHomeTableViewCell.identifier)
+        
     }
     
 }
@@ -55,12 +57,20 @@ extension ChattingViewController: UITableViewDelegate, UITableViewDataSource {
         vc.chatName = filterList[indexPath.row].chatroomName
         
         navigationController?.pushViewController(vc, animated: true)
-        
         tableView.reloadRows(at: [indexPath], with: .automatic)
     }
 }
 
 extension ChattingViewController: UISearchBarDelegate {
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchText.isEmpty {
+            filterList = chattingList
+            chattingTableView.reloadData()
+        } else {
+            searchChatRoom(searchText)
+        }
+    }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         // searchBar.text와 mockChatList[ChatRoom]의 Chat의 user(string)와 일치해야함
@@ -70,16 +80,8 @@ extension ChattingViewController: UISearchBarDelegate {
             chattingTableView.reloadData()
             return
         }
-        var chatList: [ChatRoom] = []
-        
-        for chatRoom in mockChatList {
-            if chatRoom.chatroomName.lowercased().contains(text.lowercased()) {
-                chatList.append(chatRoom)
-            }
-        }
-        
-        filterList = chatList
-        chattingTableView.reloadData()
+        searchChatRoom(text)
+        view.endEditing(true)
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
@@ -87,4 +89,42 @@ extension ChattingViewController: UISearchBarDelegate {
         chattingTableView.reloadData()
     }
     
+    func searchChatRoom(_ text: String) {
+        var chatList: [ChatRoom] = []
+        
+        for chatRoom in mockChatList {
+            if chatRoom.chatroomName.lowercased().contains(text.lowercased()) {
+                chatList.append(chatRoom)
+            }
+        }
+        filterList = chatList
+        chattingTableView.reloadData()
+    }
+}
+
+extension UIViewController {
+    func hideKeyboard() {
+        let touch = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        touch.cancelsTouchesInView = false
+        view.addGestureRecognizer(touch)
+        navigationController?.navigationBar.addGestureRecognizer(touch)
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
+}
+
+extension UITableView {
+    
+    func hideKeyboard() {
+        let touch = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        touch.cancelsTouchesInView = false
+        
+        self.addGestureRecognizer(touch)
+    }
+    
+    @objc func dismissKeyboard() {
+        self.endEditing(true)
+    }
 }

@@ -23,6 +23,7 @@ class ChattingDetailViewController: UIViewController {
         detailTableViewSetting()
         messageTextViewUI()
         messageTextView.isScrollEnabled = false
+        hideKeyboard()
     }
     
     // 네비게이션바 UI
@@ -56,19 +57,23 @@ class ChattingDetailViewController: UIViewController {
         chattingDetailTableView.register(myChatXib, forCellReuseIdentifier: MyChatTableViewCell.identifier)
         
         chattingDetailTableView.backgroundColor = .lightGray.withAlphaComponent(0.2)
+        
         // 방법 2) 비동기 작업
-        //DispatchQueue.main.async {
-        //    self.setScrollBottom()
-        //}
+        DispatchQueue.main.async {
+            print("DispatchQueue")
+            self.setScrollBottom()
+        }
     }
+    
+    // Drawying Cycle***
     
     // 방법 1) 뷰가 생성되어 화면에 보이기 전 작업을 진행
     // 뷰가 생성되고 화면에 보이기 직전 https://ios-daniel-yang.tistory.com/93
     // "UIVIew" 객체가 모든 서브뷰들의 레이아웃을 변경한 후에 호출되는 메서드
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        
-        setScrollBottom()
+        print("viewDidLayoutSubviews")
+//        setScrollBottom()
     }
     
     // 채팅방 맨 하단으로 이동하는 메서드
@@ -163,6 +168,7 @@ extension ChattingDetailViewController: UITextViewDelegate {
 //    }
     
     func textViewDidChange(_ textView: UITextView) {
+        
         let size = CGSize(width: textView.frame.width, height: .infinity)
         let estimatedSize = textView.sizeThatFits(size)
         let numberOfLines = Int(estimatedSize.height / (textView.font!.lineHeight))

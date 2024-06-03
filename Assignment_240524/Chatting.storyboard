@@ -92,7 +92,7 @@
                                         <rect key="frame" x="28" y="16" width="289" height="36"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="36" id="9qd-Qr-9hB"/>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="36" id="9qd-Qr-9hB"/>
                                         </constraints>
                                         <color key="textColor" systemColor="labelColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -101,6 +101,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TVq-yd-2RN">
                                         <rect key="frame" x="329" y="16" width="36" height="36"/>
                                         <constraints>
+                                            <constraint firstAttribute="height" constant="36" id="68J-C0-8XG"/>
                                             <constraint firstAttribute="width" secondItem="TVq-yd-2RN" secondAttribute="height" multiplier="1:1" id="JMf-2B-fGh"/>
                                         </constraints>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
@@ -115,7 +116,7 @@
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBrownColor"/>
                                 <constraints>
-                                    <constraint firstItem="TVq-yd-2RN" firstAttribute="top" secondItem="k1M-e5-RyL" secondAttribute="top" constant="16" id="4rS-IZ-YDe"/>
+                                    <constraint firstItem="TVq-yd-2RN" firstAttribute="top" relation="greaterThanOrEqual" secondItem="k1M-e5-RyL" secondAttribute="top" constant="16" id="4rS-IZ-YDe"/>
                                     <constraint firstItem="SkR-ph-y8v" firstAttribute="top" secondItem="k1M-e5-RyL" secondAttribute="top" constant="16" id="6Rp-cr-bmD"/>
                                     <constraint firstAttribute="trailing" secondItem="TVq-yd-2RN" secondAttribute="trailing" constant="28" id="EEG-nE-Fow"/>
                                     <constraint firstAttribute="bottom" secondItem="TVq-yd-2RN" secondAttribute="bottom" constant="16" id="I0w-JL-KqH"/>
@@ -126,7 +127,6 @@
                                     <constraint firstItem="2Lk-a9-4AM" firstAttribute="top" secondItem="SkR-ph-y8v" secondAttribute="top" id="lIt-w9-37g"/>
                                     <constraint firstAttribute="bottom" secondItem="SkR-ph-y8v" secondAttribute="bottom" constant="16" id="oQd-7f-4dk"/>
                                     <constraint firstItem="SkR-ph-y8v" firstAttribute="leading" secondItem="k1M-e5-RyL" secondAttribute="leading" constant="28" id="rgm-Ht-vI3"/>
-                                    <constraint firstItem="TVq-yd-2RN" firstAttribute="height" secondItem="SkR-ph-y8v" secondAttribute="height" id="wWp-jF-qax"/>
                                 </constraints>
                             </view>
                         </subviews>
