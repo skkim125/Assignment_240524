@@ -59,10 +59,10 @@ class ChattingDetailViewController: UIViewController {
         chattingDetailTableView.backgroundColor = .lightGray.withAlphaComponent(0.2)
         
         // 방법 2) 비동기 작업
-        DispatchQueue.main.async {
-            print("DispatchQueue")
-            self.setScrollBottom()
-        }
+//        DispatchQueue.main.async {
+//            print("DispatchQueue")
+//            self.setScrollBottom()
+//        }
     }
     
     // Drawying Cycle***
@@ -72,8 +72,8 @@ class ChattingDetailViewController: UIViewController {
     // "UIVIew" 객체가 모든 서브뷰들의 레이아웃을 변경한 후에 호출되는 메서드
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        print("viewDidLayoutSubviews")
-//        setScrollBottom()
+        
+        setScrollBottom()
     }
     
     // 채팅방 맨 하단으로 이동하는 메서드

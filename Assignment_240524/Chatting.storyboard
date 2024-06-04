@@ -131,10 +131,11 @@
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="rXJ-3M-ogE"/>
+                        <keyboardLayoutGuide key="keyboard" id="qK9-Qy-uT5"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="k1M-e5-RyL" firstAttribute="top" secondItem="4yD-cd-kaW" secondAttribute="bottom" id="2fW-bX-5sF"/>
-                            <constraint firstItem="rXJ-3M-ogE" firstAttribute="bottom" secondItem="k1M-e5-RyL" secondAttribute="bottom" id="6i1-nf-J3J"/>
+                            <constraint firstItem="qK9-Qy-uT5" firstAttribute="top" secondItem="k1M-e5-RyL" secondAttribute="bottom" id="6i1-nf-J3J"/>
                             <constraint firstItem="k1M-e5-RyL" firstAttribute="leading" secondItem="rXJ-3M-ogE" secondAttribute="leading" id="O5e-aY-0bY"/>
                             <constraint firstAttribute="trailing" secondItem="k1M-e5-RyL" secondAttribute="trailing" id="VbD-Q7-0WU"/>
                             <constraint firstItem="4yD-cd-kaW" firstAttribute="leading" secondItem="rXJ-3M-ogE" secondAttribute="leading" id="ZmX-gm-PGb"/>
